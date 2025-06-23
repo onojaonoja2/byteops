@@ -1,0 +1,90 @@
+/* app/globals.css */
+
+@import "tailwindcss"; /* [2, 5, 6, 10, 14] */
+
+/* Define your custom theme using @theme rule */
+:root {
+  /* ByteOps Custom Palette */
+  --byteops-base-dark: #1A2A3A;       /* Deep Charcoal Navy - Primary dark background */
+  --byteops-primary: #007BFF;         /* Vibrant Azure Blue - Main brand blue */
+  --byteops-secondary: #28A745;       /* Professional Forest Green - Secondary accent */
+  --byteops-accent: #FFAB00;          /* Bright Golden Yellow - CTA/Highlight */
+  --byteops-text-light: #E0E6EB;      /* Soft Off-White/Light Grey - Text on dark backgrounds */
+  --byteops-text-dark: #334155;       /* Dark Slate Grey - Text on light backgrounds */
+  --byteops-bg-light: #F8FAFC;        /* Near White - Primary light background */
+
+  /* Shadcn UI default colors adapted for v4 using CSS variables
+     These map to our ByteOps custom palette for consistency. */
+
+  /* Light Mode Defaults */
+  --background: var(--byteops-bg-light); /* Main background for light mode */
+  --foreground: var(--byteops-text-dark); /* Main text color for light mode */
+
+  --card: var(--byteops-bg-light);
+  --card-foreground: var(--byteops-text-dark);
+
+  --popover: var(--byteops-bg-light);
+  --popover-foreground: var(--byteops-text-dark);
+
+  --primary: var(--byteops-primary);
+  --primary-foreground: var(--byteops-text-light); /* Text on primary buttons */
+
+  --secondary: var(--byteops-secondary);
+  --secondary-foreground: var(--byteops-text-light);
+
+  --muted: oklch(96.1% 0 0); /* Still using Shadcn default light for muted */
+  --muted-foreground: oklch(46.9% 0 0);
+
+  --accent: var(--byteops-accent);
+  --accent-foreground: var(--byteops-text-dark); /* Dark text on golden accent */
+
+  --destructive: oklch(60.2% 0 0); /* Red equivalent */
+  --destructive-foreground: oklch(98% 0 0);
+
+  --border: oklch(91.4% 0 0); /* Light border */
+  --input: oklch(91.4% 0 0);
+  --ring: oklch(65.1% 0 0);
+
+  --radius: 0.5rem;
+
+  /* Custom background patterns using our text-light color for visibility on dark backgrounds */
+  --bg-dots-pattern: radial-gradient(rgba(224,230,235,0.08) 1px, transparent 1px); /* Using byteops-text-light with opacity */
+  --bg-grid-pattern: linear-gradient(to right, rgba(224,230,235,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(224,230,235,0.04) 1px, transparent 1px);
+
+  /* Dark mode variables for Tailwind v4's CSS-first approach */
+  @media (prefers-color-scheme: dark) {
+    --background: var(--byteops-base-dark); /* Main background for dark mode */
+    --foreground: var(--byteops-text-light); /* Main text color for dark mode */
+
+    --card: hsl(220 30% 10%); /* Slightly lighter than base-dark for card differentiation */
+    --card-foreground: var(--byteops-text-light);
+
+    --popover: hsl(220 30% 10%);
+    --popover-foreground: var(--byteops-text-light);
+
+    --primary: var(--byteops-primary);
+    --primary-foreground: var(--byteops-text-light);
+
+    --secondary: var(--byteops-secondary);
+    --secondary-foreground: var(--byteops-text-light);
+
+    --muted: hsl(215 27.9% 16.9%);
+    --muted-foreground: hsl(217.9 10.6% 64.5%);
+
+    --accent: var(--byteops-accent);
+    --accent-foreground: var(--byteops-text-dark); /* Still dark text on golden accent for consistency */
+
+    --destructive: hsl(0 62.8% 30.6%);
+    --destructive-foreground: hsl(210 40% 98%);
+
+    --border: hsl(215 27.9% 16.9%);
+    --input: hsl(215 27.9% 16.9%);
+    --ring: hsl(216 12.2% 83.9%);
+  }
+}
+
+/* Base styles (optional, Tailwind usually handles most of this) */
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+}
