@@ -45,24 +45,38 @@ export function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitMessage(null);
+    setSubmitMessage(null); // Clear any previous submission messages
+    setErrors({}); // Clear all errors
+
     if (!validate()) {
       setSubmitMessage("Please correct the errors in the form.");
       return;
     }
 
-    setIsSubmitting(true);
+    setIsSubmitting(true); // Disable button during submission
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      console.log("Form submitted:", formData);
-      setSubmitMessage("Your message has been sent successfully!");
-      setFormData({ name: "", email: "", subject: "", message: "" }); // Clear form
+      const response = await fetch('/api/contact', { // Target your new API route
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData), // Send form data as JSON
+      });
+
+      const data = await response.json(); // Parse the JSON response from the API route
+
+      if (response.ok) { // Check if the response status is 2xx
+        setSubmitMessage(data.message || "Your message has been sent successfully!");
+        setFormData({ name: "", email: "", subject: "", message: "" }); // Clear the form
+      } else {
+        // Handle server-side validation errors or other API errors
+        setSubmitMessage(data.message || "Failed to send message. Please try again.");
+      }
     } catch (error) {
-      console.error("Form submission error:", error);
-      setSubmitMessage("Failed to send message. Please try again later.");
+      console.error("Form submission network error:", error);
+      setSubmitMessage("Network error: Could not reach the server. Please check your connection.");
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false); // Re-enable the button
     }
   };
 
@@ -134,7 +148,7 @@ export function ContactForm() {
       <Button
         type="submit"
         className="w-full bg-byteops-primary hover:bg-byteops-primary/90 text-byteops-text-light font-semibold py-3 px-8 text-lg rounded-lg shadow-md transition-all"
-        disabled={isSubmitting}
+        disabled={isSubmitting} // Disable button while submitting
       >
         {isSubmitting ? "Sending..." : "Send Message"}
       </Button>
