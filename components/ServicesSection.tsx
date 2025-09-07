@@ -81,9 +81,8 @@ export function ServicesSection() {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          // Heading text color - changed to dark gray
           className="text-4xl sm:text-5xl font-extrabold text-center mb-12
-                     text-gray-700 dark:text-gray-300 drop-shadow-md" // <-- Change this line
+                     text-byteops-accent drop-shadow-md"
         >
           Our Core Services
         </motion.h2>
@@ -106,7 +105,7 @@ export function ServicesSection() {
                     <service.icon size={48} />
                   </div>
                   <CardTitle
-                    className="text-2xl font-bold text-center text-gray-900 dark:text-byteops-text-light" // Adjusted card title color for readability
+                    className="text-2xl font-bold text-center text-byteops-accent" // Adjusted card title color for readability
                   >
                     {service.title}
                   </CardTitle>

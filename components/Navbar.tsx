@@ -51,7 +51,7 @@ export function Navbar() {
               alt="ByteOps Digital Systems Logo"
               width={1000}
               height={500}
-              className="h-20 w-auto object-contain brightness-125 saturate-150"
+              className="h-20 w-auto object-contain brightness-125 saturate-150 bg-white p-2 rounded-lg"
               priority
             />
           </motion.div>
@@ -89,6 +89,7 @@ export function Navbar() {
           >
             <Link href="/#contact">
               <Button
+                style={{ backgroundColor: 'var(--byteops-magenta)' }}
                 className="
                   bg-byteops-accent hover:bg-byteops-accent/80
                   text-byteops-text-dark font-semibold py-2 px-4 rounded-lg shadow-md
@@ -161,6 +162,7 @@ export function Navbar() {
             >
               <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
                 <Button
+                  style={{ backgroundColor: 'var(--byteops-magenta)' }}
                   className="
                     bg-byteops-accent hover:bg-byteops-accent/80
                     text-byteops-text-dark font-semibold py-3 px-6 text-xl rounded-lg shadow-md

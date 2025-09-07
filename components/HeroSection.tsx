@@ -33,214 +33,210 @@ type FloatingIcon = {
 
 // Array of icons with their properties for animation and placement
 const floatingIcons: FloatingIcon[] = [
-  // Existing icons with enhanced animations
   {
     icon: Laptop,
-    size: 50,
-    position: { top: "10%", left: "15%" },
-    delay: 0,
-    animationDuration: 12, // Increased duration for smoother, longer float
-    opacity: 0.15,
-    animateConfig: {
-      y: [0, -25, 0, 15, 0], // More complex vertical path
-      x: [0, 15, -10, 5, 0], // More complex horizontal path
-      rotate: [0, 10, -5, 0],
-      scale: [1, 1.05, 1], // Slight breathing effect
-    },
+    "size": 50,
+    "position": { "top": "10%", "left": "15%" },
+    "delay": 0,
+    "animationDuration": 15,
+    "opacity": 0.15,
+    "animateConfig": {
+      "y": [0, -60, 0, 40, 0],
+      "x": [0, 40, -30, 25, 0],
+      "rotate": [0, 45, -35, 0],
+      "scale": [1, 1.3, 1]
+    }
   },
   {
     icon: Cloud,
-    size: 70,
-    position: { bottom: "5%", right: "10%" },
-    delay: 2.5, // Adjusted delay
-    animationDuration: 14, // Increased duration
-    opacity: 0.12,
-    animateConfig: {
-      y: [0, 20, -10, 0],
-      x: [0, -15, 10, 0],
-      rotate: [0, -8, 8, 0],
-      scale: [1, 0.98, 1], // Slight "pulsing" inward
-    },
+    "size": 70,
+    "position": { "bottom": "5%", "right": "10%" },
+    "delay": 2.5,
+    "animationDuration": 18,
+    "opacity": 0.12,
+    "animateConfig": {
+      "y": [0, 50, -30, 0],
+      "x": [0, -40, 30, 0],
+      "rotate": [0, -30, 30, 0],
+      "scale": [1, 0.9, 1]
+    }
   },
   {
     icon: Shield,
-    size: 60,
-    position: { top: "30%", right: "20%" },
-    delay: 4.5,
-    animationDuration: 10,
-    opacity: 0.18,
-    animateConfig: {
-      y: [0, 10, -10, 0],
-      x: [0, -5, 5, 0],
-      rotate: [0, 15, -15, 0],
-    },
+    "size": 60,
+    "position": { "top": "30%", "right": "20%" },
+    "delay": 4.5,
+    "animationDuration": 13,
+    "opacity": 0.18,
+    "animateConfig": {
+      "y": [0, 30, -30, 0],
+      "x": [0, -25, 25, 0],
+      "rotate": [0, 50, -50, 0]
+    }
   },
   {
     icon: Cpu,
-    size: 80,
-    position: { bottom: "20%", left: "25%" },
-    delay: 1.5,
-    animationDuration: 13,
-    opacity: 0.14,
-    animateConfig: {
-      y: [0, -10, 20, 0],
-      x: [0, 10, -20, 0],
-      rotate: [0, 5, -10, 0],
-      scale: [1, 1.03, 1],
-    },
+    "size": 80,
+    "position": { "bottom": "20%", "left": "25%" },
+    "delay": 1.5,
+    "animationDuration": 16,
+    "opacity": 0.14,
+    "animateConfig": {
+      "y": [0, -30, 50, 0],
+      "x": [0, 30, -50, 0],
+      "rotate": [0, 25, -30, 0],
+      "scale": [1, 1.2, 1]
+    }
   },
   {
     icon: Server,
-    size: 55,
-    position: { top: "50%", left: "5%" },
-    delay: 3.5,
-    animationDuration: 9,
-    opacity: 0.15,
-    animateConfig: {
-      y: [0, -10, 0, 10, 0],
-      x: [0, 5, -5, 0],
-      rotate: [0, 3, -3, 0],
-    },
+    "size": 55,
+    "position": { "top": "50%", "left": "5%" },
+    "delay": 3.5,
+    "animationDuration": 12,
+    "opacity": 0.15,
+    "animateConfig": {
+      "y": [0, -30, 0, 30, 0],
+      "x": [0, 25, -25, 0],
+      "rotate": [0, 20, -20, 0]
+    }
   },
   {
     icon: Infinity,
-    size: 75,
-    position: { top: "15%", right: "5%" },
-    delay: 5.5,
-    animationDuration: 15,
-    opacity: 0.11,
-    animateConfig: {
-      y: [0, 25, 0, -15, 0],
-      x: [0, -20, 10, 0],
-      rotate: [0, -10, 5, 0],
-      scale: [1, 1.02, 1],
-    },
+    "size": 75,
+    "position": { "top": "15%", "right": "5%" },
+    "delay": 5.5,
+    "animationDuration": 20,
+    "opacity": 0.11,
+    "animateConfig": {
+      "y": [0, 60, 0, -40, 0],
+      "x": [0, -50, 30, 0],
+      "rotate": [0, -40, 30, 0],
+      "scale": [1, 1.2, 1]
+    }
   },
   {
     icon: Activity,
-    size: 65,
-    position: { bottom: "10%", left: "50%" },
-    delay: 6.5,
-    animationDuration: 11,
-    opacity: 0.16,
-    animateConfig: {
-      y: [0, -15, 15, 0],
-      x: [0, 10, -5, 0],
-      rotate: [0, 7, -7, 0],
-    },
+    "size": 65,
+    "position": { "bottom": "10%", "left": "50%" },
+    "delay": 6.5,
+    "animationDuration": 14,
+    "opacity": 0.16,
+    "animateConfig": {
+      "y": [0, -40, 40, 0],
+      "x": [0, 30, -25, 0],
+      "rotate": [0, 30, -30, 0]
+    }
   },
   {
     icon: Lightbulb,
-    size: 45,
-    position: { top: "70%", left: "80%" },
-    delay: 1.8,
-    animationDuration: 10,
-    opacity: 0.13,
-    animateConfig: {
-      y: [0, 10, -5, 0],
-      x: [0, -5, 5, 0],
-      rotate: [0, 12, -12, 0],
-      scale: [1, 0.97, 1],
-    },
+    "size": 45,
+    "position": { "top": "70%", "left": "80%" },
+    "delay": 1.8,
+    "animationDuration": 13,
+    "opacity": 0.13,
+    "animateConfig": {
+      "y": [0, 30, -25, 0],
+      "x": [0, -25, 25, 0],
+      "rotate": [0, 40, -40, 0],
+      "scale": [1, 0.9, 1]
+    }
   },
   {
     icon: Code,
-    size: 70,
-    position: { top: "5%", right: "40%" },
-    delay: 3.8,
-    animationDuration: 12.5,
-    opacity: 0.17,
-    animateConfig: {
-      y: [0, -10, 10, 0],
-      x: [0, 5, -5, 0],
-      rotate: [0, -6, 6, 0],
-    },
+    "size": 70,
+    "position": { "top": "5%", "right": "40%" },
+    "delay": 3.8,
+    "animationDuration": 15,
+    "opacity": 0.17,
+    "animateConfig": {
+      "y": [0, -30, 30, 0],
+      "x": [0, 25, -25, 0],
+      "rotate": [0, -25, 25, 0]
+    }
   },
-
-  // --- NEW ICONS FOR DENSER BACKGROUND with varied animations ---
   {
     icon: Globe,
-    size: 60,
-    position: { bottom: "30%", right: "35%" },
-    delay: 0.8,
-    animationDuration: 11.5,
-    opacity: 0.16,
-    animateConfig: {
-      y: [0, 18, -8, 0],
-      x: [0, -8, 12, 0],
-      rotate: [0, 9, -9, 0],
-      scale: [1, 1.04, 1],
-    },
+    "size": 60,
+    "position": { "bottom": "30%", "right": "35%" },
+    "delay": 0.8,
+    "animationDuration": 14,
+    "opacity": 0.16,
+    "animateConfig": {
+      "y": [0, 45, -30, 0],
+      "x": [0, -30, 35, 0],
+      "rotate": [0, 30, -30, 0],
+      "scale": [1, 1.2, 1]
+    }
   },
   {
     icon: Atom,
-    size: 50,
-    position: { top: "45%", right: "10%" },
-    delay: 2.8,
-    animationDuration: 9.5,
-    opacity: 0.14,
-    animateConfig: {
-      y: [0, -12, 8, 0],
-      x: [0, 7, -7, 0],
-      rotate: [0, -10, 10, 0],
-    },
+    "size": 50,
+    "position": { "top": "45%", "right": "10%" },
+    "delay": 2.8,
+    "animationDuration": 12,
+    "opacity": 0.14,
+    "animateConfig": {
+      "y": [0, -30, 25, 0],
+      "x": [0, 25, -25, 0],
+      "rotate": [0, -35, 35, 0]
+    }
   },
   {
-    icon: Cloud, // Another cloud for density
-    size: 40,
-    position: { top: "85%", left: "10%" },
-    delay: 4.8,
-    animationDuration: 13.5,
-    opacity: 0.12,
-    animateConfig: {
-      y: [0, 15, -10, 0],
-      x: [0, 10, -5, 0],
-      rotate: [0, 4, -4, 0],
-      scale: [1, 0.99, 1],
-    },
+    icon: Cloud,
+    "size": 40,
+    "position": { "top": "85%", "left": "10%" },
+    "delay": 4.8,
+    "animationDuration": 16,
+    "opacity": 0.12,
+    "animateConfig": {
+      "y": [0, 40, -30, 0],
+      "x": [0, 30, -25, 0],
+      "rotate": [0, 20, -20, 0],
+      "scale": [1, 0.95, 1]
+    }
   },
   {
-    icon: Laptop, // Another laptop for density
-    size: 60,
-    position: { bottom: "15%", left: "70%" },
-    delay: 1.2,
-    animationDuration: 10.8,
-    opacity: 0.18,
-    animateConfig: {
-      y: [0, -8, 18, 0],
-      x: [0, -10, 8, 0],
-      rotate: [0, -7, 7, 0],
-      scale: [1, 1.06, 1],
-    },
+    icon: Laptop,
+    "size": 60,
+    "position": { "bottom": "15%", "left": "70%" },
+    "delay": 1.2,
+    "animationDuration": 14,
+    "opacity": 0.18,
+    "animateConfig": {
+      "y": [0, -30, 40, 0],
+      "x": [0, -30, 25, 0],
+      "rotate": [0, -25, 25, 0],
+      "scale": [1, 1.3, 1]
+    }
   },
   {
-    icon: Cpu, // Another CPU for density
-    size: 45,
-    position: { top: "60%", left: "60%" },
-    delay: 7,
-    animationDuration: 14,
-    opacity: 0.13,
-    animateConfig: {
-      y: [0, 20, -10, 0],
-      x: [0, 10, -15, 0],
-      rotate: [0, 8, -8, 0],
-    },
+    icon: Cpu,
+    "size": 45,
+    "position": { "top": "60%", "left": "60%" },
+    "delay": 7,
+    "animationDuration": 18,
+    "opacity": 0.13,
+    "animateConfig": {
+      "y": [0, 50, -30, 0],
+      "x": [0, 30, -40, 0],
+      "rotate": [0, 30, -30, 0]
+    }
   },
   {
-    icon: Shield, // Another Shield for density
-    size: 55,
-    position: { top: "20%", left: "70%" },
-    delay: 0.2,
-    animationDuration: 9,
-    opacity: 0.17,
-    animateConfig: {
-      y: [0, -10, 10, 0],
-      x: [0, 5, -5, 0],
-      rotate: [0, -12, 12, 0],
-    },
-  },
-];
-
+    icon: Shield,
+    "size": 55,
+    "position": { "top": "20%", "left": "70%" },
+    "delay": 0.2,
+    "animationDuration": 12,
+    "opacity": 0.17,
+    "animateConfig": {
+      "y": [0, -30, 30, 0],
+      "x": [0, 25, -25, 0],
+      "rotate": [0, -35, 35, 0]
+    }
+  }
+]
 export function HeroSection() {
   // Split the motto into words for individual animation
   const mottoWords = "“Simplifying Tech, Amplifying Impact.”".split(" ");
@@ -301,7 +297,8 @@ export function HeroSection() {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6"
+          style={{ color: 'var(--byteops-accent)' }}
+          className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6"
         >
           Powering Africa&apos;s Digital Future
         </motion.h1>
@@ -328,7 +325,8 @@ export function HeroSection() {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
-          className="text-lg sm:text-xl text-gray-700 mb-8 max-w-2xl mx-auto font-bold"
+          style={{ color: 'var(--byteops-accent)' }}
+          className="text-lg sm:text-xl mb-8 max-w-2xl mx-auto font-bold"
         >
           Empowering businesses and individuals with cutting-edge digital
           solutions, practical training, and strategic guidance.
@@ -341,12 +339,12 @@ export function HeroSection() {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Link href="/#services">
-            <Button className={buttonClasses}>
+            <Button style={{ backgroundColor: 'var(--byteops-magenta)' }} className={buttonClasses}>
               Explore Services
             </Button>
           </Link>
           <Link href="/#contact">
-            <Button className={buttonClasses}>
+            <Button style={{ backgroundColor: 'var(--byteops-magenta)' }} className={buttonClasses}>
               Get a Free Consultation
             </Button>
           </Link>

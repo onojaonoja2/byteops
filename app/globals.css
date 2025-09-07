@@ -6,11 +6,12 @@
 :root {
   /* ByteOps Custom Palette */
   --byteops-base-dark: #1A2A3A;       /* Deep Charcoal Navy - Primary dark background */
+  --byteops-magenta: #FF00FF;        /* Bright Magenta - for buttons */
   --byteops-primary: #007BFF;         /* Vibrant Azure Blue - Main brand blue */
   --byteops-secondary: #28A745;       /* Professional Forest Green - Secondary accent */
   --byteops-accent: #FFAB00;          /* Bright Golden Yellow - CTA/Highlight */
-  --byteops-text-light: #E0E6EB;      /* Soft Off-White/Light Grey - Text on dark backgrounds */
-  --byteops-text-dark: #334155;       /* Dark Slate Grey - Text on light backgrounds */
+  --byteops-text-light: #FFFFFF;      /* Soft Off-White/Light Grey - Text on dark backgrounds */
+  --byteops-text-dark: #000000;       /* Dark Slate Grey - Text on light backgrounds */
   --byteops-bg-light: #F8FAFC;        /* Near White - Primary light background */
 
   /* Shadcn UI default colors adapted for v4 using CSS variables
@@ -87,4 +88,23 @@
 body {
   color: var(--foreground);
   background-color: var(--background);
+}
+
+/* Add these keyframes to your globals.css file */
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(10px) rotate(-5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
 }
