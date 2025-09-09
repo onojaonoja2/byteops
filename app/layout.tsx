@@ -13,7 +13,9 @@ export const metadata: Metadata = {
   keywords: ["ByteOps", "Digital Systems", "Tech Training", "IT Consultancy", "AI Automation", "Web Development", "App Development", "Business Innovation", "Africa Tech", "Digital Transformation"],
   authors: [{ name: "ByteOps Digital Systems" }],
   icons: {
-    icon: '/byte_favicon.png', 
+    icon: '/favicon.ico', 
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
   },
 };
 
