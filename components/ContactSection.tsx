@@ -110,7 +110,7 @@ export function ContactSection() {
               <p className="text-sm">Typical response time: within 24 hours.</p>
               <div className="flex items-center justify-center space-x-2">
                 <Mail className="h-5 w-5 text-byteops-primary dark:text-byteops-secondary" />
-                <a href="mailto:info@byteops.com" className="text-base hover:text-byteops-accent transition-colors">info@byteops.com</a>
+                <a href="mailto:byteops.digital@gmail.com" className="text-base hover:text-byteops-accent transition-colors">byteops.digital@gmail.com</a>
               </div>
               <div className="flex items-center justify-center space-x-2">
                 <Phone className="h-5 w-5 text-byteops-primary dark:text-byteops-secondary" />

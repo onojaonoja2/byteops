@@ -34,7 +34,7 @@ export function Footer() {
                 alt="ByteOps Digital Systems Logo"
                 width={1000}
                 height={500}
-                className="h-20 w-auto object-contain brightness-125 saturate-150" // Slightly larger logo for presence
+                className="h-20 w-auto object-contain brightness-125 saturate-150 bg-white p-2 rounded-lg"
                 priority
               />
             </Link>
@@ -74,7 +74,7 @@ export function Footer() {
             <ul className="space-y-3 text-lg">
               <li className="flex items-center justify-center md:justify-start space-x-3">
                 <Mail size={20} className="text-byteops-accent" />
-                <a href="mailto:info@byteops.com" className="text-byteops-text-light/80 hover:text-byteops-accent transition-colors duration-200">info@byteops.com</a>
+                <a href="mailto:byteops.digital@gmail.com" className="text-byteops-text-light/80 hover:text-byteops-accent transition-colors duration-200">byteops.digital@gmail.com</a>
               </li>
               <li className="flex items-center justify-center md:justify-start space-x-3">
                 <Phone size={20} className="text-byteops-accent" />
