@@ -1,7 +1,7 @@
 // components/ServicesSection.tsx
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Lightbulb, Code, Brain, TrendingUp, BriefcaseBusiness, ShieldCheck } from "lucide-react";
 
@@ -45,7 +45,7 @@ const services = [
 ];
 
 export function ServicesSection() {
-	const containerVariants = {
+	const containerVariants: Variants = {
 		hidden: { opacity: 0 },
 		show: {
 			opacity: 1,
@@ -55,9 +55,16 @@ export function ServicesSection() {
 		},
 	};
 
-	const itemVariants = {
+	const itemVariants: Variants = {
 		hidden: { opacity: 0, y: 50 },
-		show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+		show: { 
+			opacity: 1, 
+			y: 0, 
+			transition: { 
+				duration: 0.6, 
+				ease: "easeOut"
+			} 
+		},
 	};
 
 	return (

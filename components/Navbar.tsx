@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion"; // Import AnimatePresence
+import { motion, AnimatePresence, Variants } from "framer-motion"; // Import AnimatePresence
 import { Button } from "./ui/button";
 import { MenuIcon, X, Home, Layers, Users, MessageSquare } from "lucide-react"; // Import X icon for close
 import { useState } from "react"; // Import useState
@@ -19,17 +19,23 @@ export function Navbar() {
   ];
 
   // Animation variants for the mobile menu
-  const mobileMenuVariants = {
+  const mobileMenuVariants: Variants = {
     hidden: {
-      y: "-100%", // Start above the screen
+      y: "-100%",
       opacity: 0,
-      transition: { duration: 0.4, ease: "easeOut" },
+      transition: {
+        duration: 0.3,
+        ease: "easeIn" as const
+      }
     },
     visible: {
-      y: "0%", // Slide down to position
+      y: "0%",
       opacity: 1,
-      transition: { duration: 0.4, ease: "easeOut" },
-    },
+      transition: {
+        duration: 0.3,
+        ease: "easeOut" as const
+      }
+    }
   };
 
   return (

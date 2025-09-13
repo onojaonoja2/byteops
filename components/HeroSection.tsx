@@ -2,6 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import type { Transition, Variants } from "framer-motion";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import {
@@ -19,7 +20,7 @@ import {
 } from "lucide-react";
 
 // Define a type for the animated background icons
-type FloatingIcon = {
+interface FloatingIcon {
   icon: React.ElementType;
   size: number;
   position: { top?: string; left?: string; right?: string; bottom?: string };
@@ -28,7 +29,6 @@ type FloatingIcon = {
   opacity: number;
   // New: add custom animation properties if needed per icon
   animateConfig?: { y?: number[]; x?: number[]; rotate?: number[]; scale?: number[] };
-  transitionConfig?: { duration?: number; ease?: string; repeat?: number; repeatType?: string; delay?: number };
 };
 
 // Array of icons with their properties for animation and placement
@@ -238,6 +238,13 @@ const floatingIcons: FloatingIcon[] = [
   }
 ]
 export function HeroSection() {
+  const defaultTransition: Transition = {
+    duration: 2,
+    ease: "easeInOut",
+    repeat: Number.POSITIVE_INFINITY,
+    repeatType: "loop"
+  };
+
   // Split the motto into words for individual animation
   const mottoWords = "“Simplifying Tech, Amplifying Impact.”".split(" ");
 
@@ -274,18 +281,8 @@ export function HeroSection() {
             opacity: item.opacity,
             zIndex: 0,
           }}
-          animate={item.animateConfig || { // Use custom animateConfig or default if not provided
-            y: [0, -20, 0],
-            x: [0, 10, 0],
-            rotate: [0, 5, -5, 0],
-          }}
-          transition={item.transitionConfig || { // Use custom transitionConfig or default if not provided
-            duration: item.animationDuration,
-            ease: "easeInOut",
-            repeat: Infinity,
-            repeatType: "loop",
-            delay: item.delay,
-          }}
+          animate={item.animateConfig}
+          transition={defaultTransition}
         >
           <item.icon size={item.size} />
         </motion.div>

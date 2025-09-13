@@ -1,11 +1,11 @@
 // components/sections/AboutSection.tsx
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { BUSINESS_INFO } from "@/constants";
 
 export default function AboutSection() {
-  const textVariants = {
+  const textVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
