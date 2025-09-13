@@ -8,7 +8,7 @@ import { NAV_LINKS, BUSINESS_INFO } from "@/constants";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { MenuIcon } from "lucide-react"; // Install lucide-react for icons: npm install lucide-react
-import { ThemeToggle } from "@/components/theme-toggle";
+import { ThemeToggle } from "../theme-toggle";
 
 // Install lucide-react for icons:
 // npm install lucide-react
@@ -47,30 +47,31 @@ export default function Header() {
         {/* Mobile Navigation */}
          <div className="flex items-center md:hidden gap-2"> {/* Added a div to align toggle and sheet trigger */}
             <ThemeToggle />
-        <Sheet>
-          <SheetTrigger asChild className="md:hidden">
-            <Button variant="outline" size="icon">
-              <MenuIcon className="h-6 w-6" />
-              <span className="sr-only">Toggle navigation menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="right">
-            <nav className="flex flex-col gap-4 pt-8">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-lg font-medium hover:text-primary"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <Button asChild className="mt-4">
-                <Link href="#contact">Get a Quote</Link>
-              </Button>
-            </nav>
-          </SheetContent>
-        </Sheet>
+            <Sheet>
+              <SheetTrigger asChild className="md:hidden">
+                <Button variant="outline" size="icon">
+                  <MenuIcon className="h-6 w-6" />
+                  <span className="sr-only">Toggle navigation menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right">
+                <nav className="flex flex-col gap-4 pt-8">
+                  {NAV_LINKS.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="text-lg font-medium hover:text-primary"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                  <Button asChild className="mt-4">
+                    <Link href="#contact">Get a Quote</Link>
+                  </Button>
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
       </div>
     </motion.header>
   );

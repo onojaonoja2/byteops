@@ -1,7 +1,7 @@
 // components/sections/ServicesSection.tsx
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { SERVICE_OFFERINGS } from "@/constants";
 import {
@@ -20,7 +20,7 @@ const getIconComponent = (iconName: string) => {
 };
 
 export default function ServicesSection() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -30,7 +30,7 @@ export default function ServicesSection() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 50, opacity: 0 },
     visible: {
       y: 0,
