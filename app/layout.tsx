@@ -8,25 +8,80 @@ import { Footer } from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ByteOps Digital Systems - Simplifying Tech, Amplifying Impact.",
-  description: "Empowering businesses and individuals with cutting-edge digital solutions, practical training, and strategic guidance that drive innovation, efficiency, and growth.",
-  keywords: ["ByteOps", "Digital Systems", "Tech Training", "IT Consultancy", "AI Automation", "Web Development", "App Development", "Business Innovation", "Africa Tech", "Digital Transformation"],
-  authors: [{ name: "ByteOps Digital Systems" }],
+  metadataBase: new URL('https://byteops.digital'),
+  title: {
+    default: "Best Tech Training & Digital Solutions in Abuja, Nigeria | ByteOps Digital",
+    template: "%s | Leading Tech Solutions Provider in Nigeria - ByteOps Digital"
+  },
+  description: "Premier provider of tech training, IT consultancy & digital solutions in Abuja, Nigeria. Expert web development, AI automation & business innovation services. Transform your business with ByteOps Digital Systems - Africa's trusted technology partner.",
+  keywords: [
+    "ByteOps", "Digital Systems", "Tech Training", "IT Consultancy", 
+    "AI Automation", "Web Development", "App Development", 
+    "Business Innovation", "Africa Tech", "Digital Transformation"
+  ],
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://byteops.digital',
+    siteName: 'ByteOps Digital Systems',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'ByteOps Digital Systems'
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@byteopsdigital',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
-    icon: '/favicon.ico', 
+    icon: '/favicon.ico',
     shortcut: '/favicon.ico',
     apple: '/favicon.ico',
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ByteOps Digital Systems",
+    "url": "https://byteops.digital",
+    "logo": "https://byteops.digital/byte.png",
+    "description": "Empowering businesses with cutting-edge digital solutions and technical training.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "contact@byteops.digital"
+    }
+  };
+
   return (
     <html lang="en" className="scroll-smooth">
-      {/* Ensure no whitespace/newline characters here */}
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={inter.className}>
         <Navbar />
         <div className="pt-20">

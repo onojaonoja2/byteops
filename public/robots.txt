@@ -1,0 +1,22 @@
+# ByteOps Digital Systems robots.txt
+User-agent: *
+Allow: /
+
+# Allow all bots full access
+User-agent: Googlebot
+Allow: /
+User-agent: Googlebot-Image
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: DuckDuckBot
+Allow: /
+
+# Crawl delay for better server performance
+Crawl-delay: 10
+
+# Sitemaps
+Sitemap: https://byteops.digital/sitemap.xml
+
+# Host
+Host: https://byteops.digital
