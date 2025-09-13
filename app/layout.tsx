@@ -5,6 +5,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "next-themes";
+import Script from 'next/script'; // Import the Script component
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -84,6 +85,20 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
+        {/* Google Analytics Script using next/script */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-SKMVLJC8BB"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-SKMVLJC8BB');
+          `}
+        </Script>
+        
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           <div className="pt-20">
