@@ -10,7 +10,7 @@ import { Mail, Phone } from 'lucide-react'; // Adding more icons for general con
 
 export function ContactSection() {
   // Replace with your actual WhatsApp number, including country code (without +, or spaces)
-  const whatsappNumber = "2347080904982"; // Example: Nigeria +234
+  const whatsappNumber = "2347019091481"; // Example: Nigeria +234
   const whatsappMessage = "Hello ByteOps! I'd like to inquire about your services.";
 
   return (
@@ -99,11 +99,11 @@ export function ContactSection() {
                 <p className="text-sm">Typical response time: within 24 hours.</p>
                 <div className="flex items-center justify-center space-x-2">
                   <Mail className="h-5 w-5 text-byteops-primary dark:text-byteops-secondary" />
-                  <a href="mailto:byteops.digital@gmail.com" className="text-base hover:text-byteops-accent transition-colors">byteops.digital@gmail.com</a>
+                  <a href="mailto:info@byteops.digital" className="text-base hover:text-byteops-accent transition-colors">info@byteops.digital</a>
                 </div>
                 <div className="flex items-center justify-center space-x-2">
                   <Phone className="h-5 w-5 text-byteops-primary dark:text-byteops-secondary" />
-                  <a href={`tel:+${whatsappNumber}`} className="text-base hover:text-byteops-accent transition-colors">+234 708 090 4982</a> {/* Display number nicely */}
+                  <a href={`tel:+${whatsappNumber}`} className="text-base hover:text-byteops-accent transition-colors">+234 701 909 1481</a> {/* Display number nicely */}
                 </div>
               </div>
             </motion.div>

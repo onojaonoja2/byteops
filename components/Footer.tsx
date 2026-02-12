@@ -1,12 +1,12 @@
 // components/Footer.tsx
 import Link from "next/link";
 import Image from "next/image";
-import { FaLinkedinIn, FaTwitter, FaFacebookF, FaWhatsapp } from 'react-icons/fa'; // Added FaWhatsapp
+import { FaLinkedinIn, FaFacebookF, FaWhatsapp } from 'react-icons/fa'; // Added FaWhatsapp
 import { Mail, Phone, MapPin } from 'lucide-react'; // Lucide icons for contact info
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const whatsappNumber = "2347080904982";
+  const whatsappNumber = "2347019091481";
   const whatsappMessage = "Hello ByteOps! I'd like to inquire about your services.";
 
   return (
@@ -74,11 +74,11 @@ export function Footer() {
             <ul className="space-y-3 text-lg">
               <li className="flex items-center justify-center md:justify-start space-x-3">
                 <Mail size={20} className="text-byteops-accent" />
-                <a href="mailto:byteops.digital@gmail.com" className="text-byteops-text-light/80 hover:text-byteops-accent transition-colors duration-200">byteops.digital@gmail.com</a>
+                <a href="mailto:info@byteops.digital" className="text-byteops-text-light/80 hover:text-byteops-accent transition-colors duration-200">info@byteops.digital</a>
               </li>
               <li className="flex items-center justify-center md:justify-start space-x-3">
                 <Phone size={20} className="text-byteops-accent" />
-                <a href={`tel:+${whatsappNumber}`} className="text-byteops-text-light/80 hover:text-byteops-accent transition-colors duration-200">+234 708 090 4982</a>
+                <a href={`tel:+${whatsappNumber}`} className="text-byteops-text-light/80 hover:text-byteops-accent transition-colors duration-200">+234 701 909 1481</a>
               </li>
               <li className="flex items-start justify-center md:justify-start space-x-3">
                 <MapPin size={20} className="text-byteops-accent mt-1" />
@@ -93,13 +93,10 @@ export function Footer() {
           <div className="text-center md:text-left">
             <h3 className="text-xl font-semibold mb-6 text-byteops-primary">Follow Us</h3>
             <div className="flex justify-center md:justify-start space-x-4">
-              <Link href="#" className="p-2 rounded-full bg-byteops-primary/20 hover:bg-byteops-primary text-byteops-text-light hover:text-white transition-all duration-300 transform hover:-translate-y-1" aria-label="LinkedIn">
+              <Link href="https://www.linkedin.com/company/byteops-digital-systems/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-byteops-primary/20 hover:bg-byteops-primary text-byteops-text-light hover:text-white transition-all duration-300 transform hover:-translate-y-1" aria-label="LinkedIn">
                 <FaLinkedinIn size={20} />
               </Link>
-              <Link href="#" className="p-2 rounded-full bg-byteops-primary/20 hover:bg-byteops-primary text-byteops-text-light hover:text-white transition-all duration-300 transform hover:-translate-y-1" aria-label="Twitter">
-                <FaTwitter size={20} />
-              </Link>
-              <Link href="#" className="p-2 rounded-full bg-byteops-primary/20 hover:bg-byteops-primary text-byteops-text-light hover:text-white transition-all duration-300 transform hover:-translate-y-1" aria-label="Facebook">
+              <Link href="https://www.facebook.com/profile.php?viewas=100000686899395&id=61583223701076" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-byteops-primary/20 hover:bg-byteops-primary text-byteops-text-light hover:text-white transition-all duration-300 transform hover:-translate-y-1" aria-label="Facebook">
                 <FaFacebookF size={20} />
               </Link>
               <Link href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-byteops-primary/20 hover:bg-byteops-primary text-byteops-text-light hover:text-white transition-all duration-300 transform hover:-translate-y-1" aria-label="WhatsApp">
