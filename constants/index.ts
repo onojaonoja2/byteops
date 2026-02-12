@@ -45,7 +45,7 @@ export const BUSINESS_INFO = {
   motto: "Simplifying Tech, Amplifying Impact.",
   mission: "To empower businesses and individuals with cutting-edge digital solutions, practical training, and strategic guidance that drive innovation, efficiency, and growth.",
   vision: "To be Africa’s leading catalyst for tech-enabled transformation, where digital tools and smart strategies fuel sustainable success across industries.",
-  email: "info@byteops.com", // Placeholder
-  phone: "+123 456 7890", // Placeholder
+  email: "info@byteops.digital", // Placeholder
+  phone: "+2347047123311", // Placeholder
   address: "123 Tech Lane, Innovation City, Africa", // Placeholder
 };
