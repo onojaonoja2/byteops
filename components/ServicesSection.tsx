@@ -131,11 +131,12 @@ export function ServicesSection() {
 					{services.map((service, index) => (
 						<motion.div key={index} variants={itemVariants}>
 							<Card
-								className="h-full flex flex-col justify-between p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 // Added hover lift
-                           bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg" // Solid card background for better contrast
+								className="h-full flex flex-col justify-between p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group
+                                   bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-lg
+                                   hover:border-byteops-primary/50 dark:hover:border-byteops-primary/30"
 							>
 								<CardHeader className="pb-4">
-									<div className="text-5xl mb-4 flex justify-center text-byteops-primary dark:text-byteops-secondary">
+									<div className="text-5xl mb-4 flex justify-center text-byteops-primary dark:text-byteops-secondary transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
 										<service.icon size={48} />
 									</div>
 									<CardTitle className="text-2xl font-bold text-center text-byteops-accent">

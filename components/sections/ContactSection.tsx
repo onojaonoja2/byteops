@@ -50,7 +50,7 @@ export default function ContactSection() {
             Get in <span className="text-primary">Touch</span>
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Have a project in mind or just want to say hello? Fill out the form or reach out to us directly. We'd love to hear from you!
+            Have a project in mind or just want to say hello? Fill out the form or reach out to us directly. We&apos;d love to hear from you!
           </p>
           <div className="space-y-4">
             <div className="flex items-center gap-3 text-lg">
