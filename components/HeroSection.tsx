@@ -26,8 +26,8 @@ export function HeroSection() {
 
   return (
     <section
-      className="relative h-screen flex items-center justify-center text-center overflow-hidden
-                 bg-byteops-base-dark"
+      className="relative min-h-screen flex items-center justify-center text-center overflow-hidden
+                 bg-byteops-base-dark py-20"
       style={{
         backgroundImage: `radial-gradient(circle at center, rgba(0, 100, 200, 0.15) 0%, transparent 70%)`,
         backgroundSize: "200% 200%",
@@ -39,15 +39,6 @@ export function HeroSection() {
 
       {/* Main content of the Hero Section (text and buttons) */}
       <div className="relative z-10 p-4 md:p-8 max-w-4xl mx-auto">
-        <motion.h1
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-byteops-primary via-byteops-magenta to-byteops-accent bg-clip-text text-transparent"
-        >
-          Powering Africa&apos;s Digital Future
-        </motion.h1>
-
         {/* Prominent and Stylish Motto */}
         <motion.p
           className="text-3xl sm:text-4xl md:text-5xl font-black text-byteops-accent tracking-wider mb-8 drop-shadow-2xl"
@@ -66,10 +57,25 @@ export function HeroSection() {
           ))}
         </motion.p>
 
+        <motion.h1
+          initial={{ y: 50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
+          className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-8"
+          style={{
+            background: "linear-gradient(135deg, #007BFF, #FF00FF, #FFAB00)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}
+        >
+          Powering Africa&apos;s Digital Future
+        </motion.h1>
+
         <motion.p
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 1.4 }}
           className="text-lg sm:text-xl mb-8 max-w-2xl mx-auto font-bold text-byteops-text-light/90"
         >
           Empowering businesses and individuals with cutting-edge digital
@@ -79,7 +85,7 @@ export function HeroSection() {
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 1.6 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Link href="/#services">
