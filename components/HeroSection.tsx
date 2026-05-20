@@ -2,264 +2,27 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { Transition, Variants } from "framer-motion";
 import { Button } from "./ui/button";
 import Link from "next/link";
-import {
-  Laptop,
-  Cloud,
-  Shield,
-  Cpu,
-  Server,
-  Infinity,
-  Activity,
-  Lightbulb,
-  Code,
-  Globe,
-  Atom,
-} from "lucide-react";
-
-// Define a type for the animated background icons
-interface FloatingIcon {
-  icon: React.ElementType;
-  size: number;
-  position: { top?: string; left?: string; right?: string; bottom?: string };
-  delay: number;
-  animationDuration: number;
-  opacity: number;
-  // New: add custom animation properties if needed per icon
-  animateConfig?: { y?: number[]; x?: number[]; rotate?: number[]; scale?: number[] };
-};
-
-// Array of icons with their properties for animation and placement
-const floatingIcons: FloatingIcon[] = [
-  {
-    icon: Laptop,
-    "size": 50,
-    "position": { "top": "10%", "left": "15%" },
-    "delay": 0,
-    "animationDuration": 15,
-    "opacity": 0.15,
-    "animateConfig": {
-      "y": [0, -60, 0, 40, 0],
-      "x": [0, 40, -30, 25, 0],
-      "rotate": [0, 45, -35, 0],
-      "scale": [1, 1.3, 1]
-    }
-  },
-  {
-    icon: Cloud,
-    "size": 70,
-    "position": { "bottom": "5%", "right": "10%" },
-    "delay": 2.5,
-    "animationDuration": 18,
-    "opacity": 0.12,
-    "animateConfig": {
-      "y": [0, 50, -30, 0],
-      "x": [0, -40, 30, 0],
-      "rotate": [0, -30, 30, 0],
-      "scale": [1, 0.9, 1]
-    }
-  },
-  {
-    icon: Shield,
-    "size": 60,
-    "position": { "top": "30%", "right": "20%" },
-    "delay": 4.5,
-    "animationDuration": 13,
-    "opacity": 0.18,
-    "animateConfig": {
-      "y": [0, 30, -30, 0],
-      "x": [0, -25, 25, 0],
-      "rotate": [0, 50, -50, 0]
-    }
-  },
-  {
-    icon: Cpu,
-    "size": 80,
-    "position": { "bottom": "20%", "left": "25%" },
-    "delay": 1.5,
-    "animationDuration": 16,
-    "opacity": 0.14,
-    "animateConfig": {
-      "y": [0, -30, 50, 0],
-      "x": [0, 30, -50, 0],
-      "rotate": [0, 25, -30, 0],
-      "scale": [1, 1.2, 1]
-    }
-  },
-  {
-    icon: Server,
-    "size": 55,
-    "position": { "top": "50%", "left": "5%" },
-    "delay": 3.5,
-    "animationDuration": 12,
-    "opacity": 0.15,
-    "animateConfig": {
-      "y": [0, -30, 0, 30, 0],
-      "x": [0, 25, -25, 0],
-      "rotate": [0, 20, -20, 0]
-    }
-  },
-  {
-    icon: Infinity,
-    "size": 75,
-    "position": { "top": "15%", "right": "5%" },
-    "delay": 5.5,
-    "animationDuration": 20,
-    "opacity": 0.11,
-    "animateConfig": {
-      "y": [0, 60, 0, -40, 0],
-      "x": [0, -50, 30, 0],
-      "rotate": [0, -40, 30, 0],
-      "scale": [1, 1.2, 1]
-    }
-  },
-  {
-    icon: Activity,
-    "size": 65,
-    "position": { "bottom": "10%", "left": "50%" },
-    "delay": 6.5,
-    "animationDuration": 14,
-    "opacity": 0.16,
-    "animateConfig": {
-      "y": [0, -40, 40, 0],
-      "x": [0, 30, -25, 0],
-      "rotate": [0, 30, -30, 0]
-    }
-  },
-  {
-    icon: Lightbulb,
-    "size": 45,
-    "position": { "top": "70%", "left": "80%" },
-    "delay": 1.8,
-    "animationDuration": 13,
-    "opacity": 0.13,
-    "animateConfig": {
-      "y": [0, 30, -25, 0],
-      "x": [0, -25, 25, 0],
-      "rotate": [0, 40, -40, 0],
-      "scale": [1, 0.9, 1]
-    }
-  },
-  {
-    icon: Code,
-    "size": 70,
-    "position": { "top": "5%", "right": "40%" },
-    "delay": 3.8,
-    "animationDuration": 15,
-    "opacity": 0.17,
-    "animateConfig": {
-      "y": [0, -30, 30, 0],
-      "x": [0, 25, -25, 0],
-      "rotate": [0, -25, 25, 0]
-    }
-  },
-  {
-    icon: Globe,
-    "size": 60,
-    "position": { "bottom": "30%", "right": "35%" },
-    "delay": 0.8,
-    "animationDuration": 14,
-    "opacity": 0.16,
-    "animateConfig": {
-      "y": [0, 45, -30, 0],
-      "x": [0, -30, 35, 0],
-      "rotate": [0, 30, -30, 0],
-      "scale": [1, 1.2, 1]
-    }
-  },
-  {
-    icon: Atom,
-    "size": 50,
-    "position": { "top": "45%", "right": "10%" },
-    "delay": 2.8,
-    "animationDuration": 12,
-    "opacity": 0.14,
-    "animateConfig": {
-      "y": [0, -30, 25, 0],
-      "x": [0, 25, -25, 0],
-      "rotate": [0, -35, 35, 0]
-    }
-  },
-  {
-    icon: Cloud,
-    "size": 40,
-    "position": { "top": "85%", "left": "10%" },
-    "delay": 4.8,
-    "animationDuration": 16,
-    "opacity": 0.12,
-    "animateConfig": {
-      "y": [0, 40, -30, 0],
-      "x": [0, 30, -25, 0],
-      "rotate": [0, 20, -20, 0],
-      "scale": [1, 0.95, 1]
-    }
-  },
-  {
-    icon: Laptop,
-    "size": 60,
-    "position": { "bottom": "15%", "left": "70%" },
-    "delay": 1.2,
-    "animationDuration": 14,
-    "opacity": 0.18,
-    "animateConfig": {
-      "y": [0, -30, 40, 0],
-      "x": [0, -30, 25, 0],
-      "rotate": [0, -25, 25, 0],
-      "scale": [1, 1.3, 1]
-    }
-  },
-  {
-    icon: Cpu,
-    "size": 45,
-    "position": { "top": "60%", "left": "60%" },
-    "delay": 7,
-    "animationDuration": 18,
-    "opacity": 0.13,
-    "animateConfig": {
-      "y": [0, 50, -30, 0],
-      "x": [0, 30, -40, 0],
-      "rotate": [0, 30, -30, 0]
-    }
-  },
-  {
-    icon: Shield,
-    "size": 55,
-    "position": { "top": "20%", "left": "70%" },
-    "delay": 0.2,
-    "animationDuration": 12,
-    "opacity": 0.17,
-    "animateConfig": {
-      "y": [0, -30, 30, 0],
-      "x": [0, 25, -25, 0],
-      "rotate": [0, -35, 35, 0]
-    }
-  }
-]
+import { RainfallEffect } from "./RainfallEffect";
 export function HeroSection() {
-  const defaultTransition: Transition = {
-    duration: 2,
-    ease: "easeInOut",
-    repeat: Number.POSITIVE_INFINITY,
-    repeatType: "loop"
-  };
-
   // Split the motto into words for individual animation
-  const mottoWords = "“Simplifying Tech, Amplifying Impact.”".split(" ");
+  const mottoWords = "'Simplifying Tech, Amplifying Impact.'".split(" ");
 
   // Framer Motion variants for individual words in the motto
   const wordVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 30, scale: 0.8 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        delay: i * 0.15,
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1] as const,
+      },
+    }),
   };
-
-  const buttonClasses = `
-    bg-byteops-accent hover:bg-byteops-accent/80
-    text-byteops-text-dark font-semibold py-3 px-8 text-lg rounded-full
-    shadow-lg transition-all transform hover:scale-105
-    border border-transparent
-  `;
 
   return (
     <section
@@ -271,22 +34,8 @@ export function HeroSection() {
         backgroundPosition: "center center",
       }}
     >
-      {/* Animated background icons */}
-      {floatingIcons.map((item, index) => (
-        <motion.div
-          key={index}
-          className="absolute text-byteops-text-light"
-          style={{
-            ...item.position,
-            opacity: item.opacity,
-            zIndex: 0,
-          }}
-          animate={item.animateConfig}
-          transition={defaultTransition}
-        >
-          <item.icon size={item.size} />
-        </motion.div>
-      ))}
+      {/* Rainfall background effect */}
+      <RainfallEffect />
 
       {/* Main content of the Hero Section (text and buttons) */}
       <div className="relative z-10 p-4 md:p-8 max-w-4xl mx-auto">
@@ -294,24 +43,23 @@ export function HeroSection() {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          style={{ color: 'var(--byteops-accent)' }}
-          className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6"
+          className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-byteops-primary via-byteops-magenta to-byteops-accent bg-clip-text text-transparent"
         >
           Powering Africa&apos;s Digital Future
         </motion.h1>
 
         {/* Prominent and Stylish Motto */}
         <motion.p
-          className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-byteops-accent tracking-wide mb-8 drop-shadow-lg"
+          className="text-3xl sm:text-4xl md:text-5xl font-black text-byteops-accent tracking-wider mb-8 drop-shadow-2xl"
           initial="hidden"
           animate="visible"
-          transition={{ staggerChildren: 0.05 }}
         >
           {mottoWords.map((word, index) => (
             <motion.span
               key={index}
+              custom={index}
               variants={wordVariants}
-              className="inline-block mr-2"
+              className="inline-block mr-3"
             >
               {word}
             </motion.span>
@@ -322,8 +70,7 @@ export function HeroSection() {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
-          style={{ color: 'var(--byteops-accent)' }}
-          className="text-lg sm:text-xl mb-8 max-w-2xl mx-auto font-bold"
+          className="text-lg sm:text-xl mb-8 max-w-2xl mx-auto font-bold text-byteops-text-light/90"
         >
           Empowering businesses and individuals with cutting-edge digital
           solutions, practical training, and strategic guidance.
@@ -336,12 +83,22 @@ export function HeroSection() {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Link href="/#services">
-            <Button style={{ backgroundColor: 'var(--byteops-magenta)' }} className={buttonClasses}>
+            <Button className={`
+              bg-gradient-to-r from-byteops-primary to-byteops-magenta hover:from-byteops-magenta hover:to-byteops-primary
+              text-white font-semibold py-3 px-8 text-lg rounded-full
+              shadow-lg transition-all transform hover:scale-105 hover:shadow-xl
+              border border-transparent
+            `}>
               Explore Services
             </Button>
           </Link>
           <Link href="/#contact">
-            <Button style={{ backgroundColor: 'var(--byteops-magenta)' }} className={buttonClasses}>
+            <Button className={`
+              bg-gradient-to-r from-byteops-accent to-byteops-secondary hover:from-byteops-secondary hover:to-byteops-accent
+              text-byteops-text-dark font-semibold py-3 px-8 text-lg rounded-full
+              shadow-lg transition-all transform hover:scale-105 hover:shadow-xl
+              border border-transparent
+            `}>
               Get a Free Consultation
             </Button>
           </Link>

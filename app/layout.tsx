@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { BackToTop } from "@/components/BackToTop";
 import { ThemeProvider } from "next-themes";
 import Script from 'next/script'; // Import the Script component
 
@@ -100,11 +102,13 @@ export default function RootLayout({
         </Script>
         
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ScrollProgress />
           <Navbar />
           <div className="pt-20">
             {children}
           </div>
           <Footer />
+          <BackToTop />
         </ThemeProvider>
       </body>
     </html>

@@ -6,10 +6,50 @@ import Image from "next/image";
 import { motion, AnimatePresence, Variants } from "framer-motion"; // Import AnimatePresence
 import { Button } from "./ui/button";
 import { MenuIcon, X, Home, Layers, Users, MessageSquare } from "lucide-react"; // Import X icon for close
-import { useState } from "react"; // Import useState
+import { useState, useEffect } from "react"; // Import useState and useEffect
+import { ThemeToggle } from "./theme-toggle"; // Import theme toggle
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // State for mobile menu
+  const [activeSection, setActiveSection] = useState("/"); // Track active section
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = [
+        { href: "/#contact", id: "contact" },
+        { href: "/#about", id: "about" },
+        { href: "/#services", id: "services" },
+        { href: "/", id: null },
+      ];
+      const scrollPosition = window.scrollY + 150;
+
+      for (const section of sections) {
+        if (!section.id) {
+          const element = document.querySelector("section");
+          if (element) {
+            const { offsetTop } = element as HTMLElement;
+            if (scrollPosition < offsetTop + 200) {
+              setActiveSection(section.href);
+              break;
+            }
+          }
+          continue;
+        }
+
+        const element = document.getElementById(section.id);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section.href);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     { name: "Home", href: "/", icon: Home },
@@ -74,14 +114,16 @@ export function Navbar() {
             >
               <Link
                 href={link.href}
-                className="
+                className={`
                   flex flex-col items-center
-                  text-byteops-text-dark dark:text-byteops-text-light
                   text-lg font-medium
-                  transition-colors duration-300
-                  hover:text-cyan-400 dark:hover:text-cyan-300
+                  transition-all duration-300
                   py-2 px-3 rounded-md
-                "
+                  ${activeSection === link.href 
+                    ? 'text-byteops-primary dark:text-cyan-300 scale-105' 
+                    : 'text-byteops-text-dark dark:text-byteops-text-light hover:text-cyan-400 dark:hover:text-cyan-300'
+                  }
+                `}
               >
                 <link.icon className="h-6 w-6 mb-1" />
                 <span>{link.name}</span>
@@ -92,6 +134,13 @@ export function Navbar() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.1 * navLinks.length, ease: "easeOut" }}
+          >
+            <ThemeToggle />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 * (navLinks.length + 1), ease: "easeOut" }}
           >
             <Link href="/#contact">
               <Button
@@ -165,6 +214,13 @@ export function Navbar() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * navLinks.length, ease: "easeOut" }}
+            >
+              <ThemeToggle />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 * (navLinks.length + 1), ease: "easeOut" }}
             >
               <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>
                 <Button

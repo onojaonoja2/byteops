@@ -38,10 +38,10 @@ export function AboutSection() {
                 hidden: { opacity: 0, scale: 0.9 },
                 visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
               }}
-              className="bg-white dark:bg-gray-800 p-8 lg:p-10 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300
-                         border border-gray-200 dark:border-gray-700 flex flex-col items-center text-center" // Enhanced styling, added flex for icon alignment
+              className="bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm p-8 lg:p-10 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group
+                         border border-gray-200/50 dark:border-gray-700/50 hover:border-byteops-primary/50 dark:hover:border-byteops-primary/30 flex flex-col items-center text-center"
             >
-              <div className="mb-4 text-byteops-primary dark:text-byteops-secondary">
+              <div className="mb-4 text-byteops-primary dark:text-byteops-secondary transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                 <Target size={50} strokeWidth={1.5} /> {/* Mission Icon */}
               </div>
               <h3
@@ -50,7 +50,7 @@ export function AboutSection() {
                 Our Mission
               </h3>
               <p
-                className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed" // Adjusted text color for better readability
+                className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
               >
                 To empower businesses and individuals with cutting-edge digital solutions, practical training, and strategic guidance that drive innovation, efficiency, and growth.
               </p>
@@ -65,10 +65,10 @@ export function AboutSection() {
                 hidden: { opacity: 0, scale: 0.9 },
                 visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
               }}
-              className="bg-white dark:bg-gray-800 p-8 lg:p-10 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300
-                         border border-gray-200 dark:border-gray-700 flex flex-col items-center text-center" // Enhanced styling, added flex for icon alignment
+              className="bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm p-8 lg:p-10 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group
+                         border border-gray-200/50 dark:border-gray-700/50 hover:border-byteops-secondary/50 dark:hover:border-byteops-secondary/30 flex flex-col items-center text-center"
             >
-              <div className="mb-4 text-byteops-secondary dark:text-byteops-primary">
+              <div className="mb-4 text-byteops-secondary dark:text-byteops-primary transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
                 <Eye size={50} strokeWidth={1.5} /> {/* Vision Icon */}
               </div>
               <h3

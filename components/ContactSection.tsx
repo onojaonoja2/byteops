@@ -54,10 +54,9 @@ export function ContactSection() {
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
               }}
-              className="w-full md:w-1/2 flex flex-col p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300
-                         bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700" // Styled the form container as a card
+              className="w-full md:w-1/2 flex flex-col p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2
+                         bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50"
             >
-              {/* REMOVED: The <h3> "Send Us a Message" heading was here */}
               <ContactForm />
             </motion.div>
 
@@ -70,10 +69,10 @@ export function ContactSection() {
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
               }}
-              transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }} // Staggered animation
+              transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
               className="w-full md:w-1/2 flex flex-col items-center justify-center text-center
-                         bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300
-                         border border-gray-200 dark:border-gray-700" // Consistent card styling
+                         bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2
+                         border border-gray-200/50 dark:border-gray-700/50"
             >
               <h3 className="text-3xl font-bold text-byteops-secondary dark:text-byteops-primary mb-6">
                 Instant Contact
