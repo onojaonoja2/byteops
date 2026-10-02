@@ -1,113 +1,107 @@
-// components/ContactSection.tsx
 "use client";
 
-import { motion } from "framer-motion";
-import { Button } from "./ui/button";
+import { useState } from "react";
 import Link from "next/link";
-import { FaWhatsapp } from 'react-icons/fa'; // Import WhatsApp icon
-import { ContactForm } from './ContactForm'; // Import the new ContactForm
-import { Mail, Phone } from 'lucide-react'; // Adding more icons for general contact info
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronDown, MessageCircle } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
+import { ContactForm } from "./ContactForm";
+import { SectionHeading } from "./SectionHeading";
+import { Button } from "./ui/button";
 
-export function ContactSection() {
-  // Replace with your actual WhatsApp number, including country code (without +, or spaces)
-  const whatsappNumber = "2347019091481"; // Example: Nigeria +234
-  const whatsappMessage = "Hello ByteOps! I'd like to inquire about your services.";
+const WA = "2347019091481";
+
+export function ContactSection({ preview = true }: { preview?: boolean }) {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const faqs = [
+    {
+      q: "How fast will you respond?",
+      a: "Within 24 hours, usually same day on WhatsApp at +234 701 909 1481.",
+    },
+    {
+      q: "Do you work outside Abuja?",
+      a: "Yes. In-person in Abuja FCT and remote across Nigeria, Africa, and worldwide.",
+    },
+    {
+      q: "How do we start?",
+      a: "Send the form or WhatsApp us. We offer a free consultation, then a clear quote with milestones.",
+    },
+  ];
 
   return (
-    <section id="contact" className="py-20 bg-byteops-base-dark text-byteops-text-light">
+    <section id="contact" aria-labelledby="contact-heading" className="bg-byteops-base-dark py-20 text-white lg:py-24">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
-        >
-          <div className="text-center mb-12">
-            <motion.h2
-              initial={{ y: -50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-byteops-accent mb-6" // Using same striking heading colors as About section
-            >
-              Let&apos;s Connect!
-            </motion.h2>
-            <motion.p
-              initial={{ y: -50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg sm:text-xl mb-12 text-gray-700 dark:text-gray-300 max-w-3xl mx-auto" // Adjusted text and added max-width for better line length
-            >
-              Whether you have a question, need a consultation, or just want to say hello, we&apos;re here to help. Reach out to us through the form below or connect via WhatsApp!
-            </motion.p>
+        <SectionHeading
+          eyebrow="Get started"
+          title="Let's build something great"
+          description="Questions, quotes, training, or partnerships. Reach out through the form or WhatsApp for the fastest reply."
+        />
+        <div className="mx-auto mt-12 grid max-w-5xl gap-5 lg:grid-cols-2">
+          <div className="rounded-3xl bg-white p-6 text-byteops-text-dark sm:p-8">
+            <ContactForm />
           </div>
-
-          <div className="flex flex-col md:flex-row justify-center items-stretch md:space-x-10 space-y-10 md:space-y-0"> {/* items-stretch to make cards same height */}
-            {/* Contact Form Section */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-              }}
-              className="w-full md:w-1/2 flex flex-col p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2
-                         bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50"
+          <div className="flex flex-col rounded-3xl border border-white/10 bg-white/[0.06] p-6 sm:p-8">
+            <h3 className="font-display text-2xl font-bold">Instant contact</h3>
+            <p className="mt-2 text-white/70">
+              Prefer chat? Message us directly. We typically reply within 24 hours.
+            </p>
+            <Link
+              href={`https://wa.me/${WA}?text=${encodeURIComponent("Hello ByteOps! I'd like to inquire about your services.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5"
             >
-              <ContactForm />
-            </motion.div>
-
-            {/* WhatsApp & Other Contact Info Section */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-              }}
-              transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-              className="w-full md:w-1/2 flex flex-col items-center justify-center text-center
-                         bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2
-                         border border-gray-200/50 dark:border-gray-700/50"
-            >
-              <h3 className="text-3xl font-bold text-byteops-secondary dark:text-byteops-primary mb-6">
-                Instant Contact
-              </h3>
-              <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 max-w-sm">
-                Have an urgent query or prefer a quick chat? Reach out to us directly.
+              <Button className="w-full rounded-full bg-[#25D366] py-5 text-base font-semibold text-white hover:bg-[#1DA851]">
+                <FaWhatsapp size={20} aria-hidden="true" /> Chat on WhatsApp
+              </Button>
+            </Link>
+            <address className="mt-5 space-y-2 text-sm not-italic text-white/75">
+              <p>
+                Email: <a className="underline hover:text-white" href="mailto:info@byteops.digital">info@byteops.digital</a>
               </p>
-
-              <Link
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full max-w-xs mb-4" // Ensure button takes full width of max-w-xs container
-              >
-                <Button className="w-full bg-[#25D366] hover:bg-[#1DA851] text-white font-semibold py-3 px-8 text-lg rounded-full shadow-lg transition-all transform hover:scale-105 flex items-center justify-center space-x-2"> {/* Text color changed to white for better contrast on green */}
-                  <FaWhatsapp className="h-6 w-6" />
-                  <span>Chat on WhatsApp</span>
-                </Button>
-              </Link>
-
-              {/* Additional Contact Info (Optional, but good for "catching" more types of contact) */}
-              <div className="flex flex-col space-y-3 mt-6 text-byteops-text-dark dark:text-byteops-text-light w-full max-w-sm">
-                <p className="text-sm">Typical response time: within 24 hours.</p>
-                <div className="flex items-center justify-center space-x-2">
-                  <Mail className="h-5 w-5 text-byteops-primary dark:text-byteops-secondary" />
-                  <a href="mailto:info@byteops.digital" className="text-base hover:text-byteops-accent transition-colors">info@byteops.digital</a>
-                </div>
-                <div className="flex items-center justify-center space-x-2">
-                  <Phone className="h-5 w-5 text-byteops-primary dark:text-byteops-secondary" />
-                  <a href={`tel:+${whatsappNumber}`} className="text-base hover:text-byteops-accent transition-colors">+234 701 909 1481</a> {/* Display number nicely */}
-                </div>
+              <p>
+                Phone: <a className="underline hover:text-white" href="tel:+2347019091481">+234 701 909 1481</a>
+              </p>
+              <p>Abuja, Federal Capital Territory, Nigeria</p>
+            </address>
+            <div className="mt-6 border-t border-white/10 pt-5">
+              <h4 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-white/60">
+                <MessageCircle size={15} aria-hidden="true" /> Quick answers
+              </h4>
+              <div className="mt-3 space-y-2">
+                {faqs.map((f, i) => (
+                  <div key={f.q} className="rounded-2xl border border-white/10">
+                    <button
+                      onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                      aria-expanded={openFaq === i}
+                      className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left text-sm font-semibold"
+                    >
+                      {f.q}
+                      <ChevronDown size={16} aria-hidden="true" className={openFaq === i ? "rotate-180" : ""} />
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {openFaq === i && (
+                        <motion.p
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="overflow-hidden px-4 pb-3 text-sm text-white/70"
+                        >
+                          {f.a}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
               </div>
-            </motion.div>
+            </div>
+            {preview && (
+              <Link href="/contact" className="mt-5 text-sm font-semibold text-byteops-accent hover:underline">
+                Open full contact page →
+              </Link>
+            )}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

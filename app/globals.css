@@ -1,261 +1,197 @@
 /* app/globals.css */
+@import "tailwindcss";
 
-@import "tailwindcss"; /* [2, 5, 6, 10, 14] */
+@custom-variant dark (&:where(.dark, .dark *));
 
-/* Define your custom theme using @theme rule */
-:root {
-  /* ByteOps Custom Palette */
-  --byteops-base-dark: #1A2A3A;       /* Deep Charcoal Navy - Primary dark background */
-  --byteops-magenta: #FF00FF;        /* Bright Magenta - for buttons */
-  --byteops-primary: #007BFF;         /* Vibrant Azure Blue - Main brand blue */
-  --byteops-secondary: #28A745;       /* Professional Forest Green - Secondary accent */
-  --byteops-accent: #FFAB00;          /* Bright Golden Yellow - CTA/Highlight */
-  --byteops-text-light: #FFFFFF;      /* Soft Off-White/Light Grey - Text on dark backgrounds */
-  --byteops-text-dark: #000000;       /* Dark Slate Grey - Text on light backgrounds */
-  --byteops-bg-light: #F8FAFC;        /* Near White - Primary light background */
-
-  /* Shadcn UI default colors adapted for v4 using CSS variables
-     These map to our ByteOps custom palette for consistency. */
-
-  /* Light Mode Defaults */
-  --background: var(--byteops-bg-light); /* Main background for light mode */
-  --foreground: var(--byteops-text-dark); /* Main text color for light mode */
-
-  --card: var(--byteops-bg-light);
-  --card-foreground: var(--byteops-text-dark);
-
-  --popover: var(--byteops-bg-light);
-  --popover-foreground: var(--byteops-text-dark);
-
-  --primary: var(--byteops-primary);
-  --primary-foreground: var(--byteops-text-light); /* Text on primary buttons */
-
-  --secondary: var(--byteops-secondary);
-  --secondary-foreground: var(--byteops-text-light);
-
-  --muted: oklch(96.1% 0 0); /* Still using Shadcn default light for muted */
-  --muted-foreground: oklch(46.9% 0 0);
-
-  --accent: var(--byteops-accent);
-  --accent-foreground: var(--byteops-text-dark); /* Dark text on golden accent */
-
-  --destructive: oklch(60.2% 0 0); /* Red equivalent */
-  --destructive-foreground: oklch(98% 0 0);
-
-  --border: oklch(91.4% 0 0); /* Light border */
-  --input: oklch(91.4% 0 0);
-  --ring: oklch(65.1% 0 0);
-
-  --radius: 0.5rem;
-
-  /* Custom background patterns using our text-light color for visibility on dark backgrounds */
-  --bg-dots-pattern: radial-gradient(rgba(224,230,235,0.08) 1px, transparent 1px); /* Using byteops-text-light with opacity */
-  --bg-grid-pattern: linear-gradient(to right, rgba(224,230,235,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(224,230,235,0.04) 1px, transparent 1px);
-
-  /* Dark mode variables for Tailwind v4's CSS-first approach */
-  @media (prefers-color-scheme: dark) {
-    --background: var(--byteops-base-dark); /* Main background for dark mode */
-    --foreground: var(--byteops-text-light); /* Main text color for dark mode */
-
-    --card: hsl(220 30% 10%); /* Slightly lighter than base-dark for card differentiation */
-    --card-foreground: var(--byteops-text-light);
-
-    --popover: hsl(220 30% 10%);
-    --popover-foreground: var(--byteops-text-light);
-
-    --primary: var(--byteops-primary);
-    --primary-foreground: var(--byteops-text-light);
-
-    --secondary: var(--byteops-secondary);
-    --secondary-foreground: var(--byteops-text-light);
-
-    --muted: hsl(215 27.9% 16.9%);
-    --muted-foreground: hsl(217.9 10.6% 64.5%);
-
-    --accent: var(--byteops-accent);
-    --accent-foreground: var(--byteops-text-dark); /* Still dark text on golden accent for consistency */
-
-    --destructive: hsl(0 62.8% 30.6%);
-    --destructive-foreground: hsl(210 40% 98%);
-
-    --border: hsl(215 27.9% 16.9%);
-    --input: hsl(215 27.9% 16.9%);
-    --ring: hsl(216 12.2% 83.9%);
-  }
+@theme inline {
+  --color-byteops-base-dark: var(--byteops-base-dark);
+  --color-byteops-magenta: var(--byteops-magenta);
+  --color-byteops-primary: var(--byteops-primary);
+  --color-byteops-secondary: var(--byteops-secondary);
+  --color-byteops-accent: var(--byteops-accent);
+  --color-byteops-text-light: var(--byteops-text-light);
+  --color-byteops-text-dark: var(--byteops-text-dark);
+  --color-byteops-bg-light: var(--byteops-bg-light);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sora), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Base styles (optional, Tailwind usually handles most of this) */
+:root {
+  --byteops-base-dark: #1A2A3A;
+  --byteops-magenta: #D600D6;
+  --byteops-primary: #007BFF;
+  --byteops-secondary: #28A745;
+  --byteops-accent: #FFAB00;
+  --byteops-text-light: #FFFFFF;
+  --byteops-text-dark: #0B1220;
+  --byteops-bg-light: #F8FAFC;
+
+  --background: var(--byteops-bg-light);
+  --foreground: var(--byteops-text-dark);
+  --card: #FFFFFF;
+  --card-foreground: var(--byteops-text-dark);
+  --popover: #FFFFFF;
+  --popover-foreground: var(--byteops-text-dark);
+  --primary: var(--byteops-primary);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--byteops-secondary);
+  --secondary-foreground: #FFFFFF;
+  --muted: oklch(96.1% 0 0);
+  --muted-foreground: oklch(46.9% 0 0);
+  --accent: var(--byteops-accent);
+  --accent-foreground: #1A2A3A;
+  --destructive: oklch(60.2% 0 0);
+  --destructive-foreground: oklch(98% 0 0);
+  --border: oklch(91.4% 0 0);
+  --input: oklch(91.4% 0 0);
+  --ring: var(--byteops-primary);
+  --radius: 0.75rem;
+  --bg-dots-pattern: radial-gradient(rgba(11,18,32,0.08) 1px, transparent 1px);
+  --bg-grid-pattern: linear-gradient(to right, rgba(11,18,32,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(11,18,32,0.05) 1px, transparent 1px);
+}
+
+.dark {
+  --background: var(--byteops-base-dark);
+  --foreground: var(--byteops-text-light);
+  --card: hsl(220 30% 11%);
+  --card-foreground: var(--byteops-text-light);
+  --popover: hsl(220 30% 11%);
+  --popover-foreground: var(--byteops-text-light);
+  --primary: #3B9CFF;
+  --primary-foreground: #08111F;
+  --secondary: #34C759;
+  --secondary-foreground: #08111F;
+  --muted: hsl(215 27.9% 16.9%);
+  --muted-foreground: hsl(217.9 10.6% 64.9%);
+  --accent: var(--byteops-accent);
+  --accent-foreground: #1A2A3A;
+  --destructive: hsl(0 62.8% 30.6%);
+  --destructive-foreground: hsl(210 40% 98%);
+  --border: hsl(215 27.9% 20%);
+  --input: hsl(215 27.9% 20%);
+  --ring: #3B9CFF;
+  --bg-dots-pattern: radial-gradient(rgba(255,255,255,0.09) 1px, transparent 1px);
+  --bg-grid-pattern: linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+}
+
+* { border-color: var(--border); }
+html { scroll-behavior: smooth; }
 body {
   color: var(--foreground);
   background-color: var(--background);
+  font-feature-settings: "ss01", "cv11";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--byteops-accent); color: #1A2A3A; }
+
+/* anchor offset for island nav */
+section[id], div[id] { scroll-margin-top: 110px; }
+
+/* focus visibility for a11y + SEO UX */
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
+.font-display { font-family: var(--font-display); }
 
-/* Gradient text utility */
 .gradient-text {
   background: linear-gradient(135deg, var(--byteops-primary), var(--byteops-magenta), var(--byteops-accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
-/* Glassmorphism utility */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+.dark .glass {
+  background: rgba(26, 42, 58, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
-
-.dark .glass {
-  background: rgba(26, 42, 58, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.island-shadow {
+  box-shadow: 0 8px 32px -8px rgba(11,18,32,0.18), 0 2px 8px -2px rgba(11,18,32,0.12);
 }
-
-/* 3D card hover effect */
-.card-3d {
-  transform-style: preserve-3d;
-  perspective: 1000px;
+.dark .island-shadow {
+  box-shadow: 0 8px 32px -8px rgba(0,0,0,0.55), 0 2px 8px -2px rgba(0,0,0,0.4);
 }
+.card-3d { transform-style: preserve-3d; perspective: 1000px; }
+.card-3d:hover { transform: rotateX(2deg) rotateY(2deg) translateY(-8px); }
 
-.card-3d:hover {
-  transform: rotateX(2deg) rotateY(2deg) translateY(-8px);
-}
-
-/* Animated gradient border */
 @keyframes gradient-rotate {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-
-.gradient-border {
-  position: relative;
-  background: var(--byteops-bg-light);
-  border-radius: var(--radius);
-}
-
+.gradient-border { position: relative; background: var(--card); border-radius: var(--radius); }
 .gradient-border::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
+  content: ""; position: absolute; inset: -2px;
   border-radius: calc(var(--radius) + 2px);
   background: linear-gradient(90deg, var(--byteops-primary), var(--byteops-magenta), var(--byteops-accent), var(--byteops-primary));
-  background-size: 300% 300%;
-  animation: gradient-rotate 3s ease infinite;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  background-size: 300% 300%; animation: gradient-rotate 3s ease infinite;
+  z-index: -1; opacity: 0; transition: opacity 0.3s ease;
 }
+.gradient-border:hover::before { opacity: 1; }
 
-.gradient-border:hover::before {
-  opacity: 1;
-}
-
-/* Floating label animation */
-.floating-label-group {
-  position: relative;
-}
-
+.floating-label-group { position: relative; }
 .floating-label-group label {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: all 0.2s ease;
-  pointer-events: none;
-  color: var(--muted-foreground);
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  transition: all 0.2s ease; pointer-events: none; color: var(--muted-foreground);
 }
-
-.floating-label-group textarea ~ label {
-  top: 16px;
-  transform: none;
-}
-
+.floating-label-group textarea ~ label { top: 16px; transform: none; }
 .floating-label-group input:focus ~ label,
 .floating-label-group input:not(:placeholder-shown) ~ label,
 .floating-label-group textarea:focus ~ label,
 .floating-label-group textarea:not(:placeholder-shown) ~ label {
-  top: -8px;
-  left: 8px;
-  font-size: 12px;
-  color: var(--byteops-primary);
-  background: var(--card);
-  padding: 0 4px;
+  top: -8px; left: 8px; font-size: 12px; color: var(--byteops-primary);
+  background: var(--card); padding: 0 4px;
 }
 
-/* Noise texture overlay */
-.noise-overlay {
-  position: relative;
-}
-
+.noise-overlay { position: relative; }
 .noise-overlay::before {
-  content: "";
-  position: absolute;
-  inset: 0;
+  content: ""; position: absolute; inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 1;
+  pointer-events: none; z-index: 1;
 }
 
-/* Add these keyframes to your globals.css file */
 @keyframes float {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-10px) rotate(5deg);
-  }
-  50% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  75% {
-    transform: translateY(10px) rotate(-5deg);
-  }
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
+  0% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(5deg); }
+  50% { transform: translateY(0px) rotate(0deg); }
+  75% { transform: translateY(10px) rotate(-5deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
 }
+@keyframes checkmark { 0% { stroke-dashoffset: 100; } 100% { stroke-dashoffset: 0; } }
+@keyframes scale-in { 0% { transform: scale(0); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+.checkmark-circle { animation: scale-in 0.3s ease-in-out; }
+.checkmark-check { stroke-dasharray: 100; stroke-dashoffset: 100; animation: checkmark 0.5s ease-in-out 0.3s forwards; }
 
-/* Success checkmark animation */
-@keyframes checkmark {
-  0% {
-    stroke-dashoffset: 100;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes scale-in {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.checkmark-circle {
-  animation: scale-in 0.3s ease-in-out;
-}
-
-.checkmark-check {
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-  animation: checkmark 0.5s ease-in-out 0.3s forwards;
 }

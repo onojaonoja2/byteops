@@ -1,114 +1,123 @@
-// components/HeroSection.tsx
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "./ui/button";
 import Link from "next/link";
+import { ArrowRight, MapPin, MessageCircle } from "lucide-react";
+import { Button } from "./ui/button";
 import { RainfallEffect } from "./RainfallEffect";
+
 export function HeroSection() {
-  // Split the motto into words for individual animation
-  const mottoWords = "'Simplifying Tech, Amplifying Impact.'".split(" ");
-
-  // Framer Motion variants for individual words in the motto
-  const wordVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.8 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        delay: i * 0.15,
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1] as const,
-      },
-    }),
-  };
-
   return (
-    <section
-      className="relative min-h-screen flex items-center justify-center text-center overflow-hidden
-                 bg-byteops-base-dark py-20"
-      style={{
-        backgroundImage: `radial-gradient(circle at center, rgba(0, 100, 200, 0.15) 0%, transparent 70%)`,
-        backgroundSize: "200% 200%",
-        backgroundPosition: "center center",
-      }}
-    >
-      {/* Rainfall background effect */}
+    <section aria-labelledby="hero-heading" className="relative overflow-hidden bg-byteops-base-dark text-white">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(60% 50% at 50% 0%, rgba(0,123,255,0.28) 0%, transparent 70%), radial-gradient(40% 35% at 85% 80%, rgba(214,0,214,0.18) 0%, transparent 70%), radial-gradient(40% 35% at 10% 85%, rgba(255,171,0,0.14) 0%, transparent 70%)",
+        }}
+      />
       <RainfallEffect />
 
-      {/* Main content of the Hero Section (text and buttons) */}
-      <div className="relative z-10 p-4 md:p-8 max-w-4xl mx-auto">
-        {/* Prominent and Stylish Motto */}
-        <motion.p
-          className="text-3xl sm:text-4xl md:text-5xl font-black text-byteops-accent tracking-wider mb-8 drop-shadow-2xl"
-          initial="hidden"
-          animate="visible"
-        >
-          {mottoWords.map((word, index) => (
-            <motion.span
-              key={index}
-              custom={index}
-              variants={wordVariants}
-              className="inline-block mr-3"
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-10 px-4 pb-20 pt-14 sm:pt-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-8 lg:pb-28 lg:pt-20">
+        <div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-5 flex flex-wrap items-center gap-2"
+          >
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white/90">
+              <MapPin size={14} aria-hidden="true" /> Abuja, Nigeria, serving Africa and remote clients worldwide
+            </span>
+            <span className="inline-flex items-center rounded-full bg-byteops-accent px-3 py-1.5 text-xs font-bold text-byteops-base-dark">
+              Simplifying Tech, Amplifying Impact
+            </span>
+          </motion.div>
+
+          <motion.h1
+            id="hero-heading"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.08 }}
+            className="font-display max-w-2xl text-balance text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl"
+          >
+            Tech Training & Digital Solutions in Abuja, Nigeria
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.18 }}
+            className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-white/80 sm:text-lg"
+          >
+            ByteOps Digital Systems helps businesses and individuals grow with practical tech training, AI
+            automation, custom web and app development, IT consultancy, and cybersecurity built for
+            Africa&apos;s digital future.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.28 }}
+            className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
+          >
+            <Button asChild size="lg" className="rounded-full bg-byteops-primary px-7 text-white hover:bg-byteops-primary/90">
+              <Link href="/services">
+                Explore Services <ArrowRight size={18} aria-hidden="true" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="rounded-full border-white/25 bg-white/10 text-white hover:bg-white/20 hover:text-white"
             >
-              {word}
-            </motion.span>
-          ))}
-        </motion.p>
-
-        <motion.h1
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.8 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-8"
-          style={{
-            background: "linear-gradient(135deg, #007BFF, #FF00FF, #FFAB00)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            backgroundClip: "text",
-          }}
-        >
-          Powering Africa&apos;s Digital Future
-        </motion.h1>
-
-        <motion.p
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 1.4 }}
-          className="text-lg sm:text-xl mb-8 max-w-2xl mx-auto font-bold text-byteops-text-light/90"
-        >
-          Empowering businesses and individuals with cutting-edge digital
-          solutions, practical training, and strategic guidance.
-        </motion.p>
-
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 1.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <Link href="/#services">
-            <Button className={`
-              bg-gradient-to-r from-byteops-primary to-byteops-magenta hover:from-byteops-magenta hover:to-byteops-primary
-              text-white font-semibold py-3 px-8 text-lg rounded-full
-              shadow-lg transition-all transform hover:scale-105 hover:shadow-xl
-              border border-transparent
-            `}>
-              Explore Services
+              <Link href="/contact">
+                <MessageCircle size={18} aria-hidden="true" /> Get a Free Consultation
+              </Link>
             </Button>
-          </Link>
-          <Link href="/#contact">
-            <Button className={`
-              bg-gradient-to-r from-byteops-accent to-byteops-secondary hover:from-byteops-secondary hover:to-byteops-accent
-              text-byteops-text-dark font-semibold py-3 px-8 text-lg rounded-full
-              shadow-lg transition-all transform hover:scale-105 hover:shadow-xl
-              border border-transparent
-            `}>
-              Get a Free Consultation
-            </Button>
-          </Link>
-        </motion.div>
+          </motion.div>
+
+          <motion.dl
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/70"
+          >
+            <div className="flex items-center gap-2">
+              <dt className="font-bold text-white">50+</dt>
+              <dd>projects delivered</dd>
+            </div>
+            <div className="flex items-center gap-2">
+              <dt className="font-bold text-white">99%</dt>
+              <dd>client satisfaction</dd>
+            </div>
+            <div className="flex items-center gap-2">
+              <dt className="font-bold text-white">24h</dt>
+              <dd>response time</dd>
+            </div>
+          </motion.dl>
+        </div>
+
+        <motion.aside
+          aria-label="Why ByteOps"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.32 }}
+          className="rounded-3xl border border-white/12 bg-white/[0.07] p-6 backdrop-blur-md sm:p-7"
+        >
+          <h2 className="font-display text-lg font-bold">What we do, in plain terms</h2>
+          <ul className="mt-4 space-y-3 text-sm leading-relaxed text-white/80">
+            <li><strong className="text-white">Train:</strong> ICT, software and AI skills that get you hired or upskill your team.</li>
+            <li><strong className="text-white">Automate:</strong> WhatsApp bots, reports and workflows that save hours every week.</li>
+            <li><strong className="text-white">Build:</strong> fast websites, stores and apps with payments and SEO built in.</li>
+            <li><strong className="text-white">Secure:</strong> audits and NDPR compliance that protect your business.</li>
+          </ul>
+          <div className="mt-6 rounded-2xl bg-byteops-accent/15 p-4 text-sm text-white/85">
+            New here? Start with a free 15-minute call. We will map the simplest path to your goal.
+          </div>
+        </motion.aside>
       </div>
     </section>
   );

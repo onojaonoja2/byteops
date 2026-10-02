@@ -1,89 +1,56 @@
-// components/AboutSection.tsx
 "use client";
 
 import { motion } from "framer-motion";
-import { Target, Eye } from "lucide-react"; // Import icons for visual appeal
+import Link from "next/link";
+import { Eye, Target, ArrowRight } from "lucide-react";
+import { SectionHeading } from "./SectionHeading";
 
-export function AboutSection() {
+export function AboutSection({ preview = true }: { preview?: boolean }) {
   return (
-    <section id="about" className="py-20 bg-byteops-base-dark text-byteops-text-light">
+    <section id="about" aria-labelledby="about-heading" className="bg-byteops-base-dark py-20 text-white lg:py-24">
       <div className="container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <div className="mb-16">
-            <motion.h2
-              initial={{ y: -50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl sm:text-5xl font-extrabold
-                         text-gray-900 dark:text-byteops-accent" // Changed heading color for better contrast/pop
-            >
-              Discover ByteOps Digital Systems
-            </motion.h2>
+        <SectionHeading
+          eyebrow="Who we are"
+          title="Discover ByteOps Digital Systems"
+          description="Based in Abuja, Nigeria, we help businesses and individuals grow with practical digital solutions, hands-on training, and clear strategic guidance."
+        />
+        <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-2">
+          <motion.article
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.5 }}
+            className="rounded-3xl border border-white/10 bg-white/[0.06] p-8 backdrop-blur-sm"
+          >
+            <Target size={40} strokeWidth={1.5} aria-hidden="true" className="text-byteops-accent" />
+            <h3 className="font-display mt-4 text-2xl font-bold">Our Mission</h3>
+            <p className="mt-3 leading-relaxed text-white/75">
+              To empower businesses and individuals with cutting-edge digital solutions, practical
+              training, and strategic guidance that drive innovation, efficiency, and growth.
+            </p>
+          </motion.article>
+          <motion.article
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="rounded-3xl border border-white/10 bg-white/[0.06] p-8 backdrop-blur-sm"
+          >
+            <Eye size={40} strokeWidth={1.5} aria-hidden="true" className="text-byteops-primary" />
+            <h3 className="font-display mt-4 text-2xl font-bold">Our Vision</h3>
+            <p className="mt-3 leading-relaxed text-white/75">
+              To be Africa&apos;s leading catalyst for tech-enabled transformation, where digital tools
+              and smart strategies fuel sustainable success across industries.
+            </p>
+          </motion.article>
+        </div>
+        {preview && (
+          <div className="mt-10 text-center">
+            <Link href="/about" className="inline-flex items-center gap-2 rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20">
+              More about us <ArrowRight size={16} aria-hidden="true" />
+            </Link>
           </div>
-
-          <div className="grid md:grid-cols-2 gap-10 lg:gap-16"> {/* Used grid for better layout */}
-            {/* Mission */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.4 }}
-              variants={{
-                hidden: { opacity: 0, scale: 0.9 },
-                visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
-              }}
-              className="bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm p-8 lg:p-10 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group
-                         border border-gray-200/50 dark:border-gray-700/50 hover:border-byteops-primary/50 dark:hover:border-byteops-primary/30 flex flex-col items-center text-center"
-            >
-              <div className="mb-4 text-byteops-primary dark:text-byteops-secondary transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                <Target size={50} strokeWidth={1.5} /> {/* Mission Icon */}
-              </div>
-              <h3
-                className="text-3xl font-bold text-byteops-primary dark:text-byteops-secondary mb-4"
-              >
-                Our Mission
-              </h3>
-              <p
-                className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
-              >
-                To empower businesses and individuals with cutting-edge digital solutions, practical training, and strategic guidance that drive innovation, efficiency, and growth.
-              </p>
-            </motion.div>
-
-            {/* Vision */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.4 }}
-              variants={{
-                hidden: { opacity: 0, scale: 0.9 },
-                visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
-              }}
-              className="bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm p-8 lg:p-10 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group
-                         border border-gray-200/50 dark:border-gray-700/50 hover:border-byteops-secondary/50 dark:hover:border-byteops-secondary/30 flex flex-col items-center text-center"
-            >
-              <div className="mb-4 text-byteops-secondary dark:text-byteops-primary transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-                <Eye size={50} strokeWidth={1.5} /> {/* Vision Icon */}
-              </div>
-              <h3
-                className="text-3xl font-bold text-byteops-secondary dark:text-byteops-primary mb-4"
-              >
-                Our Vision
-              </h3>
-              <p
-                className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed" // Adjusted text color for better readability
-              >
-                To be Africa&apos;s leading catalyst for tech-enabled transformation, where digital tools and smart strategies fuel sustainable success across industries.
-              </p>
-            </motion.div>
-          </div>
-        </motion.div>
+        )}
       </div>
     </section>
   );

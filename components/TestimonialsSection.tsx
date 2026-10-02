@@ -1,145 +1,97 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
+import { Quote, Star } from "lucide-react";
 import { Card } from "./ui/card";
-import { Star, Quote } from "lucide-react";
-import { useState } from "react";
+import { SectionHeading } from "./SectionHeading";
 
-interface Testimonial {
-  name: string;
-  role: string;
-  company: string;
-  content: string;
-  rating: number;
-  avatar: string;
-}
-
-const testimonials: Testimonial[] = [
+const testimonials = [
   {
     name: "Amina Okafor",
     role: "CTO",
     company: "TechStart Nigeria",
-    content: "ByteOps transformed our digital infrastructure. Their team delivered beyond our expectations with incredible attention to detail and professionalism.",
+    content:
+      "ByteOps transformed our digital infrastructure. Their team delivered beyond our expectations with incredible attention to detail and professionalism.",
     rating: 5,
-    avatar: "AO",
+    initials: "AO",
   },
   {
     name: "David Mensah",
     role: "Founder",
     company: "InnovateHub",
-    content: "The AI automation solutions ByteOps provided saved us countless hours. Their expertise in digital transformation is unmatched in the region.",
+    content:
+      "The AI automation solutions ByteOps provided saved us countless hours. Their expertise in digital transformation is unmatched in the region.",
     rating: 5,
-    avatar: "DM",
+    initials: "DM",
   },
   {
     name: "Sarah Adeyemi",
     role: "Operations Manager",
     company: "GreenField Enterprises",
-    content: "Outstanding training programs! Our team's productivity increased by 40% after ByteOps' capacity building workshops. Highly recommended.",
+    content:
+      "Outstanding training programs! Our team's productivity increased by 40% after ByteOps' capacity building workshops. Highly recommended.",
     rating: 5,
-    avatar: "SA",
+    initials: "SA",
   },
   {
     name: "James Okonkwo",
     role: "CEO",
     company: "DataFlow Systems",
-    content: "ByteOps' cybersecurity audit revealed critical vulnerabilities we hadn't considered. Their comprehensive approach to data protection is exemplary.",
+    content:
+      "ByteOps' cybersecurity audit revealed critical vulnerabilities we hadn't considered. Their comprehensive approach to data protection is exemplary.",
     rating: 5,
-    avatar: "JO",
+    initials: "JO",
   },
 ];
 
 export function TestimonialsSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const containerVariants: Variants = {
+  const container: Variants = {
     hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
+    show: { opacity: 1, transition: { staggerChildren: 0.08 } },
   };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 40 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
+  const item: Variants = {
+    hidden: { opacity: 0, y: 28 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
-
   return (
-    <section className="py-24 bg-byteops-bg-light dark:bg-[hsl(220_30%_8%)] relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-byteops-primary via-byteops-magenta to-byteops-accent" />
-
-      <div className="container mx-auto px-4 relative z-10">
+    <section aria-labelledby="testimonials-heading" className="relative overflow-hidden bg-background py-20 lg:py-24">
+      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-byteops-primary via-byteops-magenta to-byteops-accent" />
+      <div className="container mx-auto px-4">
+        <SectionHeading
+          eyebrow="Client stories"
+          title="What our clients say"
+          description="Trusted by businesses across Africa to deliver exceptional digital solutions."
+        />
         <motion.div
-          initial={{ y: -30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl sm:text-5xl font-extrabold mb-4 bg-gradient-to-r from-byteops-primary via-byteops-magenta to-byteops-accent bg-clip-text text-transparent">
-            What Our Clients Say
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Trusted by businesses across Africa to deliver exceptional digital solutions
-          </p>
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
+          variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2"
         >
-          {testimonials.map((testimonial, index) => (
-            <motion.div key={index} variants={itemVariants}>
-              <Card
-                className="relative p-8 h-full flex flex-col justify-between transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl group cursor-pointer border-2"
-                style={{
-                  borderColor: activeIndex === index ? "var(--byteops-primary)" : "transparent",
-                }}
-                onClick={() => setActiveIndex(index)}
-              >
-                <div className="absolute top-4 right-4 text-byteops-primary/10 group-hover:text-byteops-primary/20 transition-colors">
-                  <Quote size={48} />
+          {testimonials.map((t) => (
+            <motion.figure key={t.name} variants={item}>
+              <Card className="relative h-full rounded-2xl border bg-card p-7 transition-all hover:-translate-y-1 hover:shadow-xl">
+                <Quote size={36} aria-hidden="true" className="absolute right-5 top-5 text-byteops-primary/15" />
+                <div className="mb-3 flex gap-1" role="img" aria-label={`Rated ${t.rating} out of 5 stars`}>
+                  {Array.from({ length: t.rating }).map((_, i) => (
+                    <Star key={i} size={18} aria-hidden="true" className="fill-byteops-accent text-byteops-accent" />
+                  ))}
                 </div>
-
-                <div>
-                  <div className="flex gap-1 mb-4">
-                    {Array.from({ length: testimonial.rating }).map((_, i) => (
-                      <Star
-                        key={i}
-                        size={20}
-                        className="fill-byteops-accent text-byteops-accent"
-                      />
-                    ))}
-                  </div>
-
-                  <p className="text-gray-700 dark:text-gray-300 text-base leading-relaxed mb-6 italic">
-                    &ldquo;{testimonial.content}&rdquo;
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-4 mt-auto">
-                  <div className="h-12 w-12 rounded-full bg-gradient-to-br from-byteops-primary to-byteops-magenta flex items-center justify-center text-white font-bold text-lg">
-                    {testimonial.avatar}
-                  </div>
-                  <div>
-                    <p className="font-semibold text-byteops-text-dark dark:text-byteops-text-light">
-                      {testimonial.name}
-                    </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      {testimonial.role}, {testimonial.company}
-                    </p>
-                  </div>
-                </div>
+                <blockquote className="leading-relaxed text-foreground/85">&ldquo;{t.content}&rdquo;</blockquote>
+                <figcaption className="mt-6 flex items-center gap-3">
+                  <span aria-hidden="true" className="grid h-11 w-11 place-items-center rounded-full bg-gradient-to-br from-byteops-primary to-byteops-magenta text-sm font-bold text-white">
+                    {t.initials}
+                  </span>
+                  <span>
+                    <span className="block font-semibold">{t.name}</span>
+                    <span className="block text-sm text-muted-foreground">
+                      {t.role}, {t.company}
+                    </span>
+                  </span>
+                </figcaption>
               </Card>
-            </motion.div>
+            </motion.figure>
           ))}
         </motion.div>
       </div>
