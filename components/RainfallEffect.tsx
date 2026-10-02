@@ -14,103 +14,85 @@ interface Particle {
 export function RainfallEffect() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
-  const scrollSpeedRef = useRef(0);
-  const lastScrollYRef = useRef(0);
-  const animationFrameRef = useRef<number>(0);
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const rafRef = useRef(0);
+  const [enabled, setEnabled] = useState(false);
 
   const createParticle = useCallback((width: number, height: number): Particle => {
     return {
       x: Math.random() * width,
       y: Math.random() * -height,
-      length: Math.random() * 20 + 10,
-      speed: Math.random() * 3 + 2,
-      opacity: Math.random() * 0.5 + 0.1,
-      width: Math.random() * 2 + 1,
+      length: Math.random() * 16 + 8,
+      speed: Math.random() * 2.2 + 1.4,
+      opacity: Math.random() * 0.35 + 0.08,
+      width: Math.random() * 1.5 + 0.8,
     };
   }, []);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    setEnabled(true);
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const updateDimensions = () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
-      setDimensions({ width, height });
-
-      particlesRef.current = Array.from({ length: 150 }, () => createParticle(width, height));
+    const count = window.innerWidth < 640 ? 55 : 90;
+    const resize = () => {
+      canvas.width = canvas.offsetWidth * Math.min(window.devicePixelRatio, 2);
+      canvas.height = canvas.offsetHeight * Math.min(window.devicePixelRatio, 2);
+      ctx.setTransform(Math.min(window.devicePixelRatio, 2), 0, 0, Math.min(window.devicePixelRatio, 2), 0, 0);
+      particlesRef.current = Array.from({ length: count }, () =>
+        createParticle(canvas.offsetWidth, canvas.offsetHeight)
+      );
     };
+    resize();
 
-    updateDimensions();
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      scrollSpeedRef.current = Math.abs(currentScrollY - lastScrollYRef.current);
-      lastScrollYRef.current = currentScrollY;
+    let visible = true;
+    const onVis = () => {
+      visible = !document.hidden;
+      if (visible) rafRef.current = requestAnimationFrame(tick);
     };
+    const onResize = () => resize();
+    document.addEventListener("visibilitychange", onVis);
+    window.addEventListener("resize", onResize);
 
-    const handleResize = () => {
-      updateDimensions();
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleResize);
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      const scrollMultiplier = 1 + scrollSpeedRef.current * 0.1;
-      scrollSpeedRef.current *= 0.95;
-
-      particlesRef.current.forEach((particle) => {
-        particle.y += particle.speed * scrollMultiplier;
-
-        if (particle.y > canvas.height) {
-          particle.y = -particle.length;
-          particle.x = Math.random() * canvas.width;
+    const tick = () => {
+      if (!visible) return;
+      const w = canvas.offsetWidth;
+      const h = canvas.offsetHeight;
+      ctx.clearRect(0, 0, w, h);
+      for (const p of particlesRef.current) {
+        p.y += p.speed;
+        if (p.y > h) {
+          p.y = -p.length;
+          p.x = Math.random() * w;
         }
-
-        const gradient = ctx.createLinearGradient(
-          particle.x,
-          particle.y,
-          particle.x,
-          particle.y + particle.length
-        );
-        gradient.addColorStop(0, `rgba(0, 123, 255, 0)`);
-        gradient.addColorStop(1, `rgba(0, 123, 255, ${particle.opacity})`);
-
+        const g = ctx.createLinearGradient(p.x, p.y, p.x, p.y + p.length);
+        g.addColorStop(0, "rgba(59,156,255,0)");
+        g.addColorStop(1, `rgba(59,156,255,${p.opacity})`);
         ctx.beginPath();
-        ctx.moveTo(particle.x, particle.y);
-        ctx.lineTo(particle.x, particle.y + particle.length);
-        ctx.strokeStyle = gradient;
-        ctx.lineWidth = particle.width;
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(p.x, p.y + p.length);
+        ctx.strokeStyle = g;
+        ctx.lineWidth = p.width;
         ctx.lineCap = "round";
         ctx.stroke();
-      });
-
-      animationFrameRef.current = requestAnimationFrame(animate);
+      }
+      rafRef.current = requestAnimationFrame(tick);
     };
-
-    animate();
+    rafRef.current = requestAnimationFrame(tick);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
-      cancelAnimationFrame(animationFrameRef.current);
+      cancelAnimationFrame(rafRef.current);
+      document.removeEventListener("visibilitychange", onVis);
+      window.removeEventListener("resize", onResize);
     };
-  }, [createParticle]);
+  }, [enabled, createParticle]);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 z-0 pointer-events-none"
-      style={{ width: dimensions.width, height: dimensions.height }}
-    />
-  );
+  if (!enabled) return null;
+  return <canvas ref={canvasRef} aria-hidden="true" className="pointer-events-none absolute inset-0 h-full w-full" />;
 }

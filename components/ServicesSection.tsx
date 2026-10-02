@@ -1,158 +1,73 @@
-// components/ServicesSection.tsx
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
-import { Lightbulb, Code, Brain, TrendingUp, BriefcaseBusiness, ShieldCheck } from "lucide-react";
+import { SectionHeading } from "./SectionHeading";
+import { SERVICES } from "@/lib/services";
 
-const services = [
-	{
-		title: "Tech Training & Capacity Building",
-		description:
-			"Empowering individuals and teams through hands-on, industry-relevant training in ICT, software development, AI, and digital tools.",
-		icon: Lightbulb,
-	},
-	{
-		title: "IT & Business Consultancy",
-		description:
-			"Providing expert guidance to help businesses optimize technology, streamline operations, and scale with confidence.",
-		icon: BriefcaseBusiness,
-	},
-	{
-		title: "AI Automation & Digital Transformation",
-		description:
-			"Designing and deploying smart AI solutions that automate workflows, enhance productivity, and unlock business potential.",
-		icon: Brain,
-	},
-	{
-		title: "Custom Web & App Development",
-		description:
-			"Building tailored, scalable, and user-friendly web and mobile applications that align with client goals and user needs.",
-		icon: Code,
-	},
-	{
-		title: "Business Innovation & Advisory Services",
-		description:
-			"Delivering strategic insights and data-driven advisory for startups and SMEs, helping them innovate, grow, and stay competitive.",
-		icon: TrendingUp,
-	},
-	{
-		title: "Cybersecurity & Data Protection",
-		description:
-			"Safeguarding your digital assets with robust cybersecurity strategies, threat detection, incident response, and data privacy compliance.",
-		icon: ShieldCheck, // Using the ShieldCheck icon
-	},
-];
+const container: Variants = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.08 } },
+};
+const item: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
 
-export function ServicesSection() {
-	const containerVariants: Variants = {
-		hidden: { opacity: 0 },
-		show: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.15,
-			},
-		},
-	};
-
-	const itemVariants: Variants = {
-		hidden: { opacity: 0, y: 50 },
-		show: { 
-			opacity: 1, 
-			y: 0, 
-			transition: { 
-				duration: 0.6, 
-				ease: "easeOut"
-			} 
-		},
-	};
-
-	return (
-		<section
-			id="services"
-			// New background: radial gradient for a smooth "fade in" from dark to lighter/different hue
-			className="py-24 relative overflow-hidden // Increased padding to facilitate blending
-                 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
-                 from-byteops-base-dark/90 via-byteops-base-dark/70 to-byteops-bg-light
-                 dark:from-byteops-base-dark/90 dark:via-byteops-base-dark/70 dark:to-[hsl(220_30%_8%)]
-                 text-byteops-text-dark dark:text-byteops-text-light"
-			itemScope
-			itemType="https://schema.org/Service"
-		>
-			{/* Optional: Add a subtle background pattern for texture, if desired */}
-			<div className="absolute inset-0 z-0 opacity-5 dark:opacity-10 pointer-events-none">
-				<svg className="h-full w-full" fill="none">
-					<defs>
-						<pattern
-							id="service-grid-pattern"
-							x="0"
-							y="0"
-							width="20"
-							height="20"
-							patternUnits="userSpaceOnUse"
-						>
-							<path
-								d="M20 0L0 0L0 20"
-								stroke="currentColor"
-								strokeWidth="0.5"
-							/>
-						</pattern>
-					</defs>
-					<rect
-						width="100%"
-						height="100%"
-						fill="url(#service-grid-pattern)"
-						className="text-byteops-primary dark:text-byteops-secondary"
-					/>
-				</svg>
-			</div>
-
-			<div className="container mx-auto px-4 relative z-10">
-				{/* Ensure content is above background elements */}
-				<motion.h2
-					initial={{ y: -50, opacity: 0 }}
-					whileInView={{ y: 0, opacity: 1 }}
-					viewport={{ once: true, amount: 0.3 }}
-					transition={{ duration: 0.6 }}
-					className="text-4xl sm:text-5xl font-extrabold text-center mb-12
-                     text-byteops-accent drop-shadow-md"
-					itemProp="name"
-				>
-					Our Core Services
-				</motion.h2>
-
-				<motion.div
-					variants={containerVariants}
-					initial="hidden"
-					whileInView="show"
-					viewport={{ once: true, amount: 0.2 }}
-					className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-				>
-					{services.map((service, index) => (
-						<motion.div key={index} variants={itemVariants}>
-							<Card
-								className="h-full flex flex-col justify-between p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group
-                                   bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-lg
-                                   hover:border-byteops-primary/50 dark:hover:border-byteops-primary/30"
-							>
-								<CardHeader className="pb-4">
-									<div className="text-5xl mb-4 flex justify-center text-byteops-primary dark:text-byteops-secondary transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
-										<service.icon size={48} />
-									</div>
-									<CardTitle className="text-2xl font-bold text-center text-byteops-accent">
-										{service.title}
-									</CardTitle>
-								</CardHeader>
-								<CardContent className="flex-grow text-center">
-									<CardDescription className="text-gray-700 dark:text-gray-300 text-base leading-relaxed">
-										{service.description}
-									</CardDescription>
-								</CardContent>
-							</Card>
-						</motion.div>
-					))}
-				</motion.div>
-			</div>
-		</section>
-	);
+export function ServicesSection({ preview = true }: { preview?: boolean }) {
+  return (
+    <section id="services" aria-labelledby="services-heading" className="relative overflow-hidden bg-background py-20 lg:py-24">
+      <div aria-hidden="true" className="absolute inset-0 opacity-[0.5] [background:var(--bg-grid-pattern)] [mask-image:radial-gradient(60%_50%_at_50%_0%,black,transparent)]" />
+      <div className="container relative z-10 mx-auto px-4">
+        <SectionHeading
+          eyebrow="What we do"
+          title="Digital services built for African businesses"
+          description="Training, automation, web development, consultancy, and security — each with a dedicated page explaining deliverables, timelines, and FAQs."
+        />
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.15 }}
+          className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3"
+        >
+          {SERVICES.map((s) => (
+            <motion.article key={s.slug} variants={item} className="h-full">
+              <Card className="group flex h-full flex-col rounded-2xl border bg-card p-2 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl">
+                <CardHeader className="pb-2">
+                  <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-byteops-primary/10 text-byteops-primary transition-transform group-hover:scale-110">
+                    <s.icon size={24} aria-hidden="true" />
+                  </div>
+                  <CardTitle className="text-xl font-bold leading-snug">
+                    <Link href={`/services/${s.slug}`} className="hover:text-byteops-primary">
+                      {s.shortTitle}
+                    </Link>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-1 flex-col">
+                  <CardDescription className="flex-1 text-[15px] leading-relaxed">{s.description}</CardDescription>
+                  <Link
+                    href={`/services/${s.slug}`}
+                    aria-label={`Learn more about ${s.shortTitle}`}
+                    className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-byteops-primary hover:gap-2.5"
+                  >
+                    Learn more <ArrowRight size={16} aria-hidden="true" className="transition-all" />
+                  </Link>
+                </CardContent>
+              </Card>
+            </motion.article>
+          ))}
+        </motion.div>
+        {preview && (
+          <div className="mt-10 text-center">
+            <Link href="/services" className="inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold hover:bg-muted">
+              View all services <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+          </div>
+        )}
+      </div>
+    </section>
+  );
 }
