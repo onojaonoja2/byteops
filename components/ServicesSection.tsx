@@ -24,7 +24,7 @@ export function ServicesSection({ preview = true }: { preview?: boolean }) {
         <SectionHeading
           eyebrow="What we do"
           title="Digital services built for African businesses"
-          description="Training, automation, web development, consultancy, and security — each with a dedicated page explaining deliverables, timelines, and FAQs."
+          description="Training, automation, web development, consultancy, and security. Each service has a dedicated page with deliverables, timelines, and FAQs."
         />
         <motion.div
           variants={container}

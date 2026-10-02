@@ -7,7 +7,7 @@ interface LogoProps {
 }
 
 /**
- * Recreated ByteOps mark from byte.png — modernized:
+ * Recreated ByteOps mark from byte.png, modernized for crisp small sizes:
  * cloud outline + speed bars + pixel square, same concept, cleaner geometry.
  * Uses currentColor for strokes so it adapts to light/dark via text color.
  */

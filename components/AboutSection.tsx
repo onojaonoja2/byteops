@@ -12,7 +12,7 @@ export function AboutSection({ preview = true }: { preview?: boolean }) {
         <SectionHeading
           eyebrow="Who we are"
           title="Discover ByteOps Digital Systems"
-          description="Based in Abuja, Nigeria — empowering businesses and individuals with cutting-edge digital solutions, practical training, and strategic guidance."
+          description="Based in Abuja, Nigeria, we help businesses and individuals grow with practical digital solutions, hands-on training, and clear strategic guidance."
         />
         <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-2">
           <motion.article

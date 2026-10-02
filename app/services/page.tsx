@@ -5,9 +5,9 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { SERVICES } from "@/lib/services";
 
 export const metadata: Metadata = {
-  title: "Our Services — Tech Training, AI, Web Development in Abuja",
+  title: "Our Services | Tech Training, AI, Web Development in Abuja",
   description:
-    "Explore ByteOps services: tech training, IT consultancy, AI automation, web & app development, business advisory, and cybersecurity in Abuja, Nigeria.",
+    "Explore ByteOps services: tech training, IT consultancy, AI automation, web and app development, business advisory, and cybersecurity in Abuja, Nigeria.",
   alternates: { canonical: "https://byteops.digital/services" },
 };
 
@@ -40,7 +40,7 @@ export default function ServicesPage() {
         <SectionHeading
           eyebrow="Services"
           title="Everything you need to launch, automate, and grow"
-          description="Each service has its own page with deliverables, timelines, and FAQs — built for clarity for humans and AI search alike."
+          description="Each service has its own page with deliverables, timelines, and FAQs, written clearly for people and search engines alike."
           align="left"
         />
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">

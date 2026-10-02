@@ -29,7 +29,7 @@ export const SERVICES: Service[] = [
     description:
       "Hands-on, industry-relevant training in ICT, software development, AI, and digital tools for individuals and teams in Abuja and across Nigeria.",
     longDescription:
-      "ByteOps Digital Systems provides expert-led tech training in Abuja, Nigeria. Our practical courses cover software development, AI tools, ICT fundamentals, and digital productivity — designed to transform careers and upskill teams with job-ready skills.",
+      "ByteOps Digital Systems provides expert-led tech training in Abuja, Nigeria. Our practical courses cover software development, AI tools, ICT fundamentals, and digital productivity, all designed to transform careers and upskill teams with job-ready skills.",
     keywords: [
       "Tech Training Abuja",
       "ICT Courses Nigeria",
@@ -47,7 +47,7 @@ export const SERVICES: Service[] = [
     deliverables: ["Curriculum", "Live workshops", "LMS access", "Capstone project", "Certificate"],
     faqs: [
       { q: "Where does training hold?", a: "In-person in Abuja, FCT and online across Nigeria and Africa." },
-      { q: "How long are courses?", a: "Short courses run 2–6 weeks; professional tracks run 8–16 weeks." },
+      { q: "How long are courses?", a: "Short courses run 2 to 6 weeks, while professional tracks run 8 to 16 weeks." },
     ],
   },
   {
@@ -57,7 +57,7 @@ export const SERVICES: Service[] = [
     description:
       "Strategic IT consultancy to help businesses optimize technology, streamline operations, and scale with confidence.",
     longDescription:
-      "Our Abuja-based IT consultants audit your systems, recommend cost-effective tools, and guide digital transformation — from cloud adoption to process automation for startups and enterprises.",
+      "Our Abuja-based IT consultants audit your systems, recommend cost-effective tools, and guide digital transformation, from cloud adoption to process automation for startups and enterprises.",
     keywords: ["IT Consultancy Abuja", "Tech Consulting Nigeria", "Digital Strategy", "Business Technology"],
     icon: BriefcaseBusiness,
     benefits: [
@@ -68,7 +68,7 @@ export const SERVICES: Service[] = [
     ],
     deliverables: ["Audit report", "Roadmap", "Implementation support", "KPI tracking"],
     faqs: [
-      { q: "Do you work with startups?", a: "Yes — we specialize in startups and SMEs across West Africa." },
+      { q: "Do you work with startups?", a: "Yes, we specialize in startups and SMEs across West Africa." },
     ],
   },
   {
@@ -89,7 +89,7 @@ export const SERVICES: Service[] = [
     ],
     deliverables: ["Discovery", "Prototype", "Deployment", "Training", "Support"],
     faqs: [
-      { q: "How fast can we deploy?", a: "MVPs in 2–4 weeks; full rollouts in 6–10 weeks." },
+      { q: "How fast can we deploy?", a: "MVPs are ready in 2 to 4 weeks, while full rollouts take 6 to 10 weeks." },
     ],
   },
   {
@@ -110,7 +110,7 @@ export const SERVICES: Service[] = [
     ],
     deliverables: ["Design", "Development", "CMS", "SEO setup", "Launch + care plan"],
     faqs: [
-      { q: "How much does a website cost?", a: "Business sites start lean; e-commerce and apps are scoped after a free consultation." },
+      { q: "How much does a website cost?", a: "Business sites start lean. E-commerce and apps are scoped after a free consultation." },
     ],
   },
   {
@@ -125,7 +125,7 @@ export const SERVICES: Service[] = [
     icon: TrendingUp,
     benefits: ["Idea validation", "MVP scoping", "Growth experiments", "Pitch support"],
     deliverables: ["Discovery sprint", "Validation report", "Growth roadmap"],
-    faqs: [{ q: "Do you help non-tech founders?", a: "Yes — most of our advisory clients are non-technical founders." }],
+    faqs: [{ q: "Do you help non-tech founders?", a: "Yes, most of our advisory clients are non-technical founders." }],
   },
   {
     slug: "cybersecurity",
@@ -139,7 +139,7 @@ export const SERVICES: Service[] = [
     icon: ShieldCheck,
     benefits: ["Vulnerability audits", "Staff phishing training", "Backup and recovery plans", "NDPR compliance"],
     deliverables: ["Audit", "Remediation", "Policy docs", "Training"],
-    faqs: [{ q: "Do small businesses need this?", a: "Yes — SMEs are the most targeted. Audits take 1–2 weeks." }],
+    faqs: [{ q: "Do small businesses need this?", a: "Yes. SMEs are the most targeted. Audits take 1 to 2 weeks." }],
   },
 ];
 
@@ -162,14 +162,14 @@ export const FAQS = [
   },
   {
     q: "Do you offer online training?",
-    a: "Yes — in-person in Abuja and live online across Nigeria and Africa, with practical projects and certificates.",
+    a: "Yes, we train in person in Abuja and live online across Nigeria and Africa, with practical projects and certificates.",
   },
   {
     q: "How much does a website or AI project cost?",
-    a: "Pricing depends on scope. Contact us for a free quote — business websites, e-commerce, and AI automation are scoped transparently with milestones.",
+    a: "Pricing depends on scope. Contact us for a free quote. Business websites, e-commerce, and AI automation are scoped transparently with milestones.",
   },
   {
     q: "Do you support NDPR compliance?",
-    a: "Yes — our cybersecurity service includes NDPR audits, staff training, and data protection policies.",
+    a: "Yes, our cybersecurity service includes NDPR audits, staff training, and data protection policies.",
   },
 ];

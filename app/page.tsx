@@ -22,7 +22,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="FAQ"
             title="Quick answers before you ask"
-            description="Pricing, timelines, and locations — citable by Google and AI assistants."
+            description="Pricing, timelines, and locations. Clear answers you can trust."
           />
           <div className="mt-8">
             <FaqList faqs={FAQS.slice(0, 5)} />

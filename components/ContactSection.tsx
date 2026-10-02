@@ -16,7 +16,7 @@ export function ContactSection({ preview = true }: { preview?: boolean }) {
   const faqs = [
     {
       q: "How fast will you respond?",
-      a: "Within 24 hours — usually same day on WhatsApp at +234 701 909 1481.",
+      a: "Within 24 hours, usually same day on WhatsApp at +234 701 909 1481.",
     },
     {
       q: "Do you work outside Abuja?",
@@ -34,7 +34,7 @@ export function ContactSection({ preview = true }: { preview?: boolean }) {
         <SectionHeading
           eyebrow="Get started"
           title="Let's build something great"
-          description="Questions, quotes, training, or partnerships — reach out via the form or WhatsApp for the fastest reply."
+          description="Questions, quotes, training, or partnerships. Reach out through the form or WhatsApp for the fastest reply."
         />
         <div className="mx-auto mt-12 grid max-w-5xl gap-5 lg:grid-cols-2">
           <div className="rounded-3xl bg-white p-6 text-byteops-text-dark sm:p-8">
@@ -43,7 +43,7 @@ export function ContactSection({ preview = true }: { preview?: boolean }) {
           <div className="flex flex-col rounded-3xl border border-white/10 bg-white/[0.06] p-6 sm:p-8">
             <h3 className="font-display text-2xl font-bold">Instant contact</h3>
             <p className="mt-2 text-white/70">
-              Prefer chat? Message us directly — typical response time within 24 hours.
+              Prefer chat? Message us directly. We typically reply within 24 hours.
             </p>
             <Link
               href={`https://wa.me/${WA}?text=${encodeURIComponent("Hello ByteOps! I'd like to inquire about your services.")}`}

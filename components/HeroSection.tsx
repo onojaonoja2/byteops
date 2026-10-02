@@ -28,7 +28,7 @@ export function HeroSection() {
             className="mb-5 flex flex-wrap items-center gap-2"
           >
             <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white/90">
-              <MapPin size={14} aria-hidden="true" /> Abuja, Nigeria — serving Africa & remote worldwide
+              <MapPin size={14} aria-hidden="true" /> Abuja, Nigeria, serving Africa and remote clients worldwide
             </span>
             <span className="inline-flex items-center rounded-full bg-byteops-accent px-3 py-1.5 text-xs font-bold text-byteops-base-dark">
               Simplifying Tech, Amplifying Impact
@@ -52,7 +52,7 @@ export function HeroSection() {
             className="mt-5 max-w-xl text-pretty text-base leading-relaxed text-white/80 sm:text-lg"
           >
             ByteOps Digital Systems helps businesses and individuals grow with practical tech training, AI
-            automation, custom web & app development, IT consultancy, and cybersecurity — powering
+            automation, custom web and app development, IT consultancy, and cybersecurity built for
             Africa&apos;s digital future.
           </motion.p>
 
@@ -109,13 +109,13 @@ export function HeroSection() {
         >
           <h2 className="font-display text-lg font-bold">What we do, in plain terms</h2>
           <ul className="mt-4 space-y-3 text-sm leading-relaxed text-white/80">
-            <li><strong className="text-white">Train</strong> — ICT, software & AI skills that get you hired or upskill your team.</li>
-            <li><strong className="text-white">Automate</strong> — WhatsApp bots, reports & workflows that save hours weekly.</li>
-            <li><strong className="text-white">Build</strong> — fast websites, stores & apps with payments and SEO built in.</li>
-            <li><strong className="text-white">Secure</strong> — audits & NDPR compliance that protect your business.</li>
+            <li><strong className="text-white">Train:</strong> ICT, software and AI skills that get you hired or upskill your team.</li>
+            <li><strong className="text-white">Automate:</strong> WhatsApp bots, reports and workflows that save hours every week.</li>
+            <li><strong className="text-white">Build:</strong> fast websites, stores and apps with payments and SEO built in.</li>
+            <li><strong className="text-white">Secure:</strong> audits and NDPR compliance that protect your business.</li>
           </ul>
           <div className="mt-6 rounded-2xl bg-byteops-accent/15 p-4 text-sm text-white/85">
-            New here? Start with a free 15-minute call — we&apos;ll map the cheapest path to your goal.
+            New here? Start with a free 15-minute call. We will map the simplest path to your goal.
           </div>
         </motion.aside>
       </div>

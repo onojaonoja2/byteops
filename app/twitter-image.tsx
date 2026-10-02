@@ -19,7 +19,7 @@ export default async function TwitterImage() {
         }}
       >
         <div style={{ fontSize: 40, fontWeight: 800, color: "white" }}>ByteOps Digital Systems</div>
-        <div style={{ marginTop: 12, fontSize: 30, color: "#FFAB00" }}>Tech Training & Digital Solutions — Abuja, Nigeria</div>
+        <div style={{ marginTop: 12, fontSize: 30, color: "#FFAB00" }}>Tech Training and Digital Solutions in Abuja, Nigeria</div>
         <div style={{ marginTop: 12, fontSize: 22, color: "#9FB3C8" }}>byteops.digital • +234 701 909 1481</div>
       </div>
     ),

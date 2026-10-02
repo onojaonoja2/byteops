@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { StatsSection } from "@/components/StatsSection";
 
 export const metadata: Metadata = {
-  title: "About ByteOps Digital Systems — Abuja Tech & Training Company",
+  title: "About ByteOps Digital Systems | Abuja Tech and Training Company",
   description:
     "ByteOps Digital Systems is an Abuja-based tech company offering training, AI automation, web development, consultancy, and cybersecurity across Nigeria and Africa.",
   alternates: { canonical: "https://byteops.digital/about" },
@@ -35,7 +35,7 @@ export default function AboutPage() {
           <p>
             ByteOps Digital Systems was founded in Abuja, Nigeria to close the gap between ambitious
             businesses and the technology they need. We combine training, consultancy, engineering,
-            and AI into one partner — so a startup, SME, or professional can learn, launch, automate,
+            and AI into one partner, so a startup, SME, or professional can learn, launch, automate,
             and stay secure without juggling five vendors.
           </p>
           <h2 className="font-display pt-2 text-2xl font-bold">Our mission</h2>
@@ -49,7 +49,7 @@ export default function AboutPage() {
             and smart strategies fuel sustainable success across industries.
           </p>
           <h2 className="font-display pt-2 text-2xl font-bold">Where we work</h2>
-          <p>Abuja, Federal Capital Territory, Nigeria — in-person and remote across Nigeria, West Africa, and worldwide.</p>
+          <p>Abuja, Federal Capital Territory, Nigeria. We work in person and remotely across Nigeria, West Africa, and worldwide.</p>
         </article>
       </div>
       <StatsSection />

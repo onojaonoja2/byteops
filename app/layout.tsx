@@ -16,11 +16,11 @@ const SITE = "https://byteops.digital";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: "ByteOps Digital Systems — Tech Training & Digital Solutions in Abuja, Nigeria",
+    default: "ByteOps Digital Systems | Tech Training and Digital Solutions in Abuja, Nigeria",
     template: "%s | ByteOps Digital Systems, Abuja Nigeria",
   },
   description:
-    "ByteOps Digital Systems in Abuja, Nigeria offers tech training, AI automation, custom web & app development, IT consultancy, business advisory, and cybersecurity. Simplifying Tech, Amplifying Impact.",
+    "ByteOps Digital Systems in Abuja, Nigeria offers tech training, AI automation, custom web and app development, IT consultancy, business advisory, and cybersecurity. Simplifying Tech, Amplifying Impact.",
   keywords: [
     "ByteOps Digital Systems",
     "Tech Training Abuja",
@@ -40,17 +40,17 @@ export const metadata: Metadata = {
     locale: "en_NG",
     url: SITE,
     siteName: "ByteOps Digital Systems",
-    title: "ByteOps Digital Systems — Tech Training & Digital Solutions in Abuja, Nigeria",
+    title: "ByteOps Digital Systems | Tech Training and Digital Solutions in Abuja, Nigeria",
     description:
-      "Tech training, AI automation, web development, IT consultancy & cybersecurity from Abuja, Nigeria to Africa and beyond.",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "ByteOps Digital Systems — Simplifying Tech, Amplifying Impact" }],
+      "Tech training, AI automation, web development, IT consultancy and cybersecurity from Abuja, Nigeria to Africa and beyond.",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "ByteOps Digital Systems: Simplifying Tech, Amplifying Impact" }],
   },
   twitter: {
     card: "summary_large_image",
     site: "@byteopsdigital",
     creator: "@byteopsdigital",
-    title: "ByteOps Digital Systems — Tech Training & Digital Solutions in Abuja",
-    description: "Training, AI automation, web apps, consultancy & security. Abuja, Nigeria.",
+    title: "ByteOps Digital Systems | Tech Training and Digital Solutions in Abuja",
+    description: "Training, AI automation, web apps, consultancy and security. Abuja, Nigeria.",
     images: ["/twitter-image"],
   },
   robots: {

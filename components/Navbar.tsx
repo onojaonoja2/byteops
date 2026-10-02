@@ -16,8 +16,9 @@ const NAV = [
   { name: "Services", href: "/services", hasMenu: true },
   { name: "About", href: "/about" },
   { name: "FAQ", href: "/faq" },
-  { name: "Contact", href: "/contact" },
 ];
+
+const CONTACT_HREF = "/contact";
 
 function useScrolled(threshold = 12) {
   const [scrolled, setScrolled] = useState(false);
@@ -65,12 +66,12 @@ export function Navbar() {
         <nav
           aria-label="Primary"
           className={cn(
-            "glass island-shadow flex w-full max-w-5xl items-center justify-between gap-2 rounded-full border py-2 pl-3 pr-2 sm:pl-4",
-            "bg-white/75 dark:bg-byteops-base-dark/75",
-            scrolled && "bg-white/90 dark:bg-byteops-base-dark/90"
+            "flex w-full max-w-5xl items-center justify-between gap-2 rounded-full border border-gray-200/80 py-2 pl-3 pr-2 shadow-lg sm:pl-4 dark:border-white/10",
+            "bg-white/95 backdrop-blur-xl dark:bg-byteops-base-dark/95",
+            scrolled && "shadow-xl"
           )}
         >
-          <Link href="/" aria-label="ByteOps Digital Systems — home" className="shrink-0 rounded-full">
+          <Link href="/" aria-label="ByteOps Digital Systems, home" className="shrink-0 rounded-full">
             <Logo />
           </Link>
 
@@ -108,7 +109,7 @@ export function Navbar() {
                         transition={{ duration: 0.18 }}
                         className="absolute left-1/2 top-full w-[34rem] -translate-x-1/2 pt-3"
                       >
-                        <div className="glass island-shadow grid grid-cols-2 gap-1 rounded-3xl p-2">
+                        <div className="grid grid-cols-2 gap-1 rounded-3xl border border-gray-200 bg-white p-2 shadow-2xl ring-1 ring-black/5 dark:border-white/10 dark:bg-[#16283A] dark:ring-white/10">
                           {SERVICES.map((s) => (
                             <Link
                               key={s.slug}
@@ -151,9 +152,18 @@ export function Navbar() {
 
           <div className="flex items-center gap-1.5">
             <ThemeToggle />
-            <Link href="/contact" className="hidden sm:block">
-              <Button className="rounded-full bg-byteops-primary px-5 font-semibold text-white shadow-md hover:bg-byteops-primary/90">
-                Get Started
+            <Link
+              href={CONTACT_HREF}
+              aria-current={isActive(CONTACT_HREF) ? "page" : undefined}
+              className="hidden sm:block"
+            >
+              <Button
+                className={cn(
+                  "rounded-full px-5 font-semibold text-white shadow-md hover:bg-byteops-primary/90",
+                  isActive(CONTACT_HREF) ? "bg-byteops-primary ring-2 ring-byteops-primary/40" : "bg-byteops-primary"
+                )}
+              >
+                Contact Us
               </Button>
             </Link>
             <Button
@@ -185,7 +195,7 @@ export function Navbar() {
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: 24, opacity: 0, scale: 0.98 }}
               transition={{ duration: 0.22, ease: "easeOut" }}
-              className="glass island-shadow absolute inset-x-3 top-20 rounded-3xl border p-3"
+              className="absolute inset-x-3 top-20 rounded-3xl border border-gray-200 bg-white p-3 shadow-2xl dark:border-white/10 dark:bg-[#16283A]"
               onClick={(e) => e.stopPropagation()}
             >
               <ul className="flex flex-col">
@@ -220,9 +230,9 @@ export function Navbar() {
                   </li>
                 ))}
               </ul>
-              <Link href="/contact" onClick={() => setOpen(false)} className="mt-2 block">
+              <Link href={CONTACT_HREF} onClick={() => setOpen(false)} className="mt-2 block">
                 <Button className="w-full rounded-2xl bg-byteops-primary py-5 text-base font-semibold text-white">
-                  Get Started
+                  Contact Us
                 </Button>
               </Link>
             </motion.nav>

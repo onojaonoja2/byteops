@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { FAQS } from "@/lib/services";
 
 export const metadata: Metadata = {
-  title: "FAQ — Pricing, Training, AI & Web Projects | ByteOps Abuja",
+  title: "FAQ | Pricing, Training, AI and Web Projects | ByteOps Abuja",
   description:
     "Answers about ByteOps pricing, training duration, locations in Abuja/Nigeria, AI automation timelines, and support. Free consultation within 24 hours.",
   alternates: { canonical: "https://byteops.digital/faq" },
@@ -31,7 +31,7 @@ export default function FaqPage() {
         <SectionHeading
           eyebrow="FAQ"
           title="Questions, answered plainly"
-          description="Pricing, timelines, and how to start — the same answers our AI assistants cite."
+          description="Pricing, timelines, and how to start. These are the same answers our AI assistants share."
           align="left"
         />
         <div className="mt-8">

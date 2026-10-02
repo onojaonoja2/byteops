@@ -4,13 +4,13 @@ const SITE = "https://byteops.digital";
 
 function full() {
   const out: string[] = [
-    `# ByteOps Digital Systems — full context`,
+    `# ByteOps Digital Systems: full context`,
     ``,
     `> Last updated 2026-10-02. Canonical: ${SITE}`,
     ``,
     `## Identity`,
     `ByteOps Digital Systems (“Simplifying Tech, Amplifying Impact”) is an Abuja-based technology company serving individuals, startups, and SMEs with training, consultancy, engineering, and security.`,
-    `Contact: info@byteops.digital, +234 701 909 1481, Abuja FCT Nigeria. Hours: Mon–Sat. Response <24h.`,
+    `Contact: info@byteops.digital, +234 701 909 1481, Abuja FCT Nigeria. Hours: Mon to Sat. Response within 24 hours.`,
     ``,
   ];
   for (const s of SERVICES) {
